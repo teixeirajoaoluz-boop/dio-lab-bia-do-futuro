@@ -1,0 +1,199 @@
+{
+  "_fonte_arquivo": "C:\\MCPs\\05_Consultor_Tributario\\mcp-planejamento-RTC\\mcp_planejamento_rtc\\farma.py",
+  "_descricao": "Dados estruturados extraídos literalmente do módulo FARMA (motor de classificação tributária do varejo farmacêutico no IBS/CBS). Nenhum valor foi alterado ou inferido além do que está no código-fonte.",
+  "baldes": {
+    "_descricao": "Os 4 'baldes' tributários em que todo produto de uma farmácia é classificado. 'reducao' é a fração de redução sobre a alíquota-padrão IBS+CBS do ano (1.00 = alíquota zero; 0.60 = redução de 60%; 0.00 = alíquota cheia/padrão).",
+    "medicamento_zero": {
+      "rotulo": "Medicamento — alíquota zero (Anexo XIV)",
+      "reducao": 1.00,
+      "cst": "200",
+      "cclasstrib": "(Anexo XIV — confirmar na tabela oficial)",
+      "base_legal": "LC 214/2025 — medicamentos do Anexo XIV (redução 100%)"
+    },
+    "medicamento_60": {
+      "rotulo": "Medicamento ANVISA / manipulado — redução 60%",
+      "reducao": 0.60,
+      "cst": "200",
+      "cclasstrib": "(medicamento 60% — confirmar na tabela oficial)",
+      "base_legal": "LC 214/2025 — medicamentos registrados na ANVISA / manipulados"
+    },
+    "dispositivo_60": {
+      "rotulo": "Dispositivo médico — redução 60% (Anexo IV)",
+      "reducao": 0.60,
+      "cst": "200",
+      "cclasstrib": "(dispositivo médico Anexo IV — confirmar na tabela oficial)",
+      "base_legal": "LC 214/2025 — dispositivos médicos do Anexo IV"
+    },
+    "cheio": {
+      "rotulo": "Não-medicamento (HPC/perfumaria/conveniência) — alíquota padrão",
+      "reducao": 0.00,
+      "cst": "000",
+      "cclasstrib": "000001",
+      "base_legal": "LC 214/2025 — tributação integral (regra geral)"
+    }
+  },
+  "ordem_balde": ["medicamento_zero", "medicamento_60", "dispositivo_60", "cheio"],
+  "nota_cst_cclasstrib": "Os valores de 'cclasstrib' para medicamento_zero, medicamento_60 e dispositivo_60 estão marcados no próprio código-fonte como placeholders ('confirmar na tabela oficial') — a tabela oficial de códigos cClassTrib por NCM ainda não foi incorporada ao motor FARMA em 2026-08-25. Apenas o balde 'cheio' tem cClassTrib definitivo (000001).",
+  "anexo_xiv_principios_ativos": {
+    "_descricao": "Lista oficial completa de princípios ativos do Anexo XIV da LC 214/2025 (alíquota zero de IBS/CBS para medicamentos). Contém 382 entradas conforme comentário do código-fonte (a lista bruta abaixo pode conter repetições herdadas da fonte oficial, preservadas como no arquivo original).",
+    "fonte": "normaslegais.com.br/legislacao/anexos-XI-a-XV-lc-214.htm",
+    "atualizado_em": "2026-06-18",
+    "revisao_periodica": "A cada 120 dias, conforme art. 146 da LC 214/2025",
+    "lista": [
+      "abacavir", "abemaciclibe", "acalabrutinibe", "aceponato de metilprednisolona",
+      "acetato de ciproterona", "acetato de degarelix", "acetato de gosserrelina",
+      "acetato de leuprorrelina", "acetato de megestrol", "acetato de octreotida",
+      "acetato de triptorrelina", "acetato desmopressina", "ácido folínico",
+      "ácido tranexâmico", "ácido zoledrônico", "acitretina", "aflibercepte",
+      "albinterferona alfa-2b", "albumina humana", "alendronato de sódio",
+      "alentuzumabe", "alfa-alglicosidase", "alfaelosulfase", "alfaepoetina",
+      "alfainterferona", "alfapeginterferona 2a", "alfapeginterferona 2b",
+      "alfatirotropina", "alfavestronidase", "alpelisibe", "alteplase",
+      "ambrisentana", "amifostina", "anastrozol", "anfotericina b",
+      "antimonial pentavalente", "apalutamida", "aprepitanto", "arteméter",
+      "artesunato", "asparaginase", "atenolol", "atezolizumabe", "avelumabe",
+      "axitinibe", "azacitidina", "azatioprina", "baricitinibe", "benzonidazol",
+      "besilato de anlodipino", "betaepoetina", "bevacizumabe", "bicalutamida",
+      "biotina", "blinatumomabe", "bortezomibe", "brentuximabe vedotina",
+      "brigatinibe", "brometo de ipratrópio", "budesonida", "burosumabe",
+      "bussulfano", "cabazitaxel", "capecitabina", "carbidopa", "levodopa",
+      "carboplatina", "carfilzomibe", "carmustina", "cefalotina", "cefoxitina",
+      "ceftazidima", "celecoxibe", "cetuximabe", "ciclofosfamida",
+      "cilastatina sódica", "imipenem", "cisplatina", "citarabina",
+      "citrato de ixazomibe", "citrato de tamoxifeno", "cladribina",
+      "clodronato dissódico", "clofazimina", "clorambucila", "cloreto de rádio",
+      "cloreto de sódio", "cloreto de suxametônio", "alectinibe", "alfentanila",
+      "aminolevulinato de metila", "cinacalcete", "daunorrubicina", "dobutamina",
+      "doxorrubicina", "epirrubicina", "erlotinibe", "fingolimode", "gencitabina",
+      "granissetrona", "idarrubicina", "irinotecano", "metoclopramida",
+      "mitoxantrona", "palonosetrona", "pazopanibe", "piridoxina", "ponatinibe",
+      "topotecana", "ziprasidona", "complexo protrombínico parcialmente ativado",
+      "crizotinibe", "dacarbazina", "dapagliflozina", "daratumumabe",
+      "darolutamida", "dasatinibe", "decitabina", "deferasirox", "denosumabe",
+      "dexametasona", "pasireotida", "diazepam", "daclatasvir", "pramipexol",
+      "quinina", "sapropterina", "didanosina", "dietilestilbestrol", "cloroquina",
+      "afatinibe", "trametinibe", "vinorelbina", "docetaxel", "dolutegravir",
+      "doxiciclina", "durvalumabe", "eculizumabe", "efavirenz", "elexacaftor",
+      "elotuzumabe", "eltrombopague", "triptorrelina", "emicizumabe",
+      "emtricitabina", "noretisterona", "valerato de estradiol", "enflurano",
+      "enfuvirtida", "tenofovir", "enzalutamida", "erdafitinibe", "nintedanibe",
+      "espironolactona", "estavudina", "etinilestradiol", "levonorgestrel",
+      "etomidato", "etoposideo", "etravirina", "everolimo", "exemestano",
+      "fator ix de coagulação", "fator vii de coagulação",
+      "fator viii de coagulação", "fentanila", "filgrastim", "fluoruracila",
+      "folinato de cálcio", "fosamprenavir", "fludarabina", "oseltamivir",
+      "ruxolitinibe", "sitagliptina", "fotemustina", "fulvestranto",
+      "fumarato de dimetila", "furosemida", "galsulfase", "ganciclovir",
+      "gefitinibe", "glicose", "golimumabe", "gosserrelina", "granisetron",
+      "haloperidol", "hidroxiureia", "hipoclorito de sódio", "ibandronato",
+      "ibrutinibe", "idursulfase", "ifosfamida", "imunoglobulina antirábica",
+      "imunoglobulina antitetânica", "imunoglobulina humana anti-hepatite b",
+      "insulina glargina", "insulina humana", "insulina", "interferon alfa",
+      "iopamidol", "ipilimumabe", "pentamidina", "isoflurano", "isotretinoína",
+      "ivacaftor", "lamivudina", "zidovudina", "letrozol", "levetiracetam",
+      "lidocaína", "linezolida", "lipegfilgrastim", "lopinavir", "ritonavir",
+      "losartana", "lumacaftor", "acalabrutinibe monoidratado", "sunitinibe",
+      "timolol", "maraviroque", "mepolizumabe", "mercaptopurina", "dabrafenibe",
+      "desferroxamina", "imatinibe", "nelfinavir", "osimertinibe", "rasagilina",
+      "mesna", "metilprednisolona", "metotrexato", "micofenolato", "midazolam",
+      "midostaurina", "mifamurtida", "mitomicina", "mitotano", "nevirapina",
+      "nilotinibe", "nitrendipino", "nivolumabe", "nusinersena", "ocrelizumabe",
+      "octreotida", "olaparibe", "olaratumabe",
+      "onasemnogeno abeparvoveque", "oxaliplatina", "paclitaxel",
+      "palbociclibe", "pamidronato", "pancreatina", "panitumumabe",
+      "peg interferon", "pegaspargase", "pegfilgrastim", "pemetrexede",
+      "pertuzumabe", "pioglitazona", "pirazinamida", "rifampicina", "etambutol",
+      "isoniazida", "plerixafor", "praziquantel", "prednisolona", "pregabalina",
+      "propofol", "rabeprazol", "raltegravir", "ramucirumabe", "rasburicase",
+      "regorafenibe", "ribavirina", "riluzol", "risanquizumabe", "risdiplam",
+      "risperidona", "rituximabe", "sacubitril", "valsartana", "saquinavir",
+      "saxagliptina", "secuquinumabe", "selexipague", "sinvastatina",
+      "sofosbuvir", "somatropina", "soro antiaracnídico", "soro antibotrópico",
+      "soro antibotulínico", "soro anticrotálico", "soro antidiftérico",
+      "soro antielapídico", "soro antiescorpiônico", "soro antilonômico",
+      "soro antiloxoscélico", "soro antirábico", "soro antitetânico",
+      "metoprolol", "ribociclibe", "hidrocortisona", "sulfadiazina",
+      "sulfametoxazol", "trimetropina", "atazanavir", "bleomicina",
+      "indinavir", "larotrectinibe", "morfina", "vincristina", "tacrolimo",
+      "tafamidis", "tamoxifeno", "vareniclina", "temozolomida", "tenecteplase",
+      "teniposideo", "tensirolimo", "teriflunomida", "terizidona",
+      "tetraciclina", "tezacaftor", "tioguanina", "tipranavir", "tocilizumabe",
+      "sorafenibe", "trastuzumabe", "trióxido de arsênio", "upadacitinibe",
+      "vancomicina", "vandetanibe", "vedolizumabe", "vimblastina",
+      "vinflunina", "vacina", "soro antiofídico", "imunoglobulina"
+    ],
+    "nota_duplicatas": "'abacavir' aparece 2x na lista original do arquivo-fonte (posições 1 e ~373); preservado sem deduplicação conforme dado bruto."
+  },
+  "ncm_medicamento_60": {
+    "_descricao": "Prefixos de NCM (capítulo 30) tratados por padrão como medicamento registrado na ANVISA -> redução 60%, quando o item não bate no Anexo XIV nem em vacina.",
+    "prefixos": ["3003", "3004"]
+  },
+  "ncm_vacina_zero": {
+    "_descricao": "Prefixos de NCM 3002.x (vacinas/soros de uso humano) tratados como Anexo XIV -> alíquota zero, mesmo sem correspondência textual de princípio ativo na descrição.",
+    "prefixos": ["30022", "300241", "300242"]
+  },
+  "ncm_dispositivo_60": {
+    "_descricao": "Prefixos de NCM comumente associados a dispositivos médicos do Anexo IV -> redução 60%. Classificação marcada como 'heuristica' (confiança menor, requer revisão manual) e não 'regra'.",
+    "prefixos": ["3005", "3006", "9018", "9019", "9021", "9022"]
+  },
+  "prefixos_sal_ignorados_na_comparacao": {
+    "_descricao": "Prefixos de sal/forma farmacêutica removidos do nome do princípio ativo antes de comparar com a lista do Anexo XIV (ex.: 'cloridrato de X' -> compara-se apenas 'X').",
+    "lista": [
+      "cloridrato de ", "dicloridrato de ", "sulfato de ", "mesilato de ",
+      "fumarato de ", "tartarato de ", "maleato de ", "besilato de ",
+      "succinato de ", "fosfato de ", "citrato de ", "acetato de ",
+      "succinato sódico de ", "tosilato de ", "esilato de ", "embonato de ",
+      "pamoato de ", "diaspartato de ", "dipalmitato de ", "dimalato de ",
+      "dimetilsulfóxido de "
+    ]
+  },
+  "ordem_de_precedencia_classificacao": [
+    {
+      "passo": 1,
+      "regra": "Se algum token (nome de princípio ativo do Anexo XIV, ou seu nome-núcleo sem sal, ou componente de uma combinação com >=5 caracteres) aparecer na descrição do produto (case-insensitive) -> balde 'medicamento_zero', confiança 'regra'."
+    },
+    {
+      "passo": 2,
+      "regra": "Senão, se o NCM (normalizado, só dígitos) começar com um dos prefixos de vacina/soro (30022, 300241, 300242) -> balde 'medicamento_zero', confiança 'regra'."
+    },
+    {
+      "passo": 3,
+      "regra": "Senão, se o NCM começar com 3003 ou 3004 (capítulo 30 — medicamentos) -> balde 'medicamento_60', confiança 'regra'."
+    },
+    {
+      "passo": 4,
+      "regra": "Senão, se a descrição contiver 'manipul', 'fórmula'/'formula' ou 'magistral' -> balde 'medicamento_60' (medicamento manipulado em farmácia de manipulação), confiança 'regra'."
+    },
+    {
+      "passo": 5,
+      "regra": "Senão, se o NCM começar com 3005, 3006, 9018, 9019, 9021 ou 9022 -> balde 'dispositivo_60' (dispositivo médico do Anexo IV), confiança 'heuristica' (precisa de revisão manual, ao contrário das demais regras)."
+    },
+    {
+      "passo": 6,
+      "regra": "Default: nenhuma das regras acima bateu -> balde 'cheio' (não-medicamento: HPC, perfumaria, conveniência), alíquota padrão, confiança 'regra'."
+    }
+  ],
+  "modelo_calculo_aliquota_efetiva": {
+    "_descricao": "Fórmula do comportamento tributário mesclado (blended) do mix de produtos de uma farmácia, ano a ano, na janela de transição 2027-2033.",
+    "aliquota_referencia_ano": "cbs[ano] + ibs[ano] (tabela de transição do motor engine.py, sem nenhuma redução)",
+    "efetiva_por_balde": "efetiva_balde(ano) = aliquota_referencia(ano) * (1 - reducao_do_balde)",
+    "blended": "blended(ano) = soma, para cada balde, de share_do_balde_no_mix * efetiva_balde(ano)",
+    "posicao_liquida_ano": "receita_tributavel_do_ano * blended - credito (credito = debito * razao_credito, um parametro de entrada)",
+    "tabela_transicao_ibs_cbs_2027_2033": {
+      "_fonte": "C:\\MCPs\\05_Consultor_Tributario\\mcp-planejamento-RTC\\mcp_planejamento_rtc\\engine.py (TRANSICAO), consumida por farma.py via aliquota_referencia(ano)",
+      "2027": {"cbs": 0.0840, "ibs": 0.0010, "icms_fator": 1.00},
+      "2028": {"cbs": 0.0840, "ibs": 0.0010, "icms_fator": 1.00},
+      "2029": {"cbs": 0.0850, "ibs": 0.0185, "icms_fator": 0.90},
+      "2030": {"cbs": 0.0850, "ibs": 0.0370, "icms_fator": 0.80},
+      "2031": {"cbs": 0.0850, "ibs": 0.0555, "icms_fator": 0.70},
+      "2032": {"cbs": 0.0850, "ibs": 0.0740, "icms_fator": 0.60},
+      "2033": {"cbs": 0.0850, "ibs": 0.1850, "icms_fator": 0.00}
+    }
+  },
+  "notas_operacionais": [
+    "Fim da ICMS-ST do medicamento: hoje o ICMS é retido por substituição no distribuidor; no IBS/CBS não há ST — cada etapa debita e credita. Muda a precificação e o fluxo de caixa de imposto.",
+    "Fim do PIS/COFINS monofásico: hoje a indústria concentra o PIS/COFINS e a drogaria revende com alíquota zero; no IBS/CBS a farmácia passa a ter DÉBITO em cada venda (com o crédito da compra).",
+    "Não-cumulatividade plena: a loja credita IBS/CBS de mercadorias, energia, aluguel, ERP, maquininha, fretes — imposto recai só sobre o valor agregado.",
+    "Benefício de 60%/zero CONDICIONADO: vale enquanto a indústria/importador cumprir a regulação de preços da CMED ou o compromisso com a União e o CGIBS."
+  ]
+}

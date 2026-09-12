@@ -1,0 +1,149 @@
+{
+  "versao": "1.0.0",
+  "atualizadoEm": "2026-08-26",
+  "descricao": "Parâmetros de enquadramento e apuração do Simples Nacional: limites, sublimite, Fator R, teto de ISS e regras de leitura do extrato PGDAS-D.",
+  "fonte": {
+    "normativa": "LC 123/2006 e Resolução CGSN 140/2018",
+    "referenciaOperacional": "Simulador Guerra RTC — Fator R (FS12/RBT12) conforme RELEASE-2026-05-23",
+    "confianca": "alta"
+  },
+  "limites": {
+    "receitaBrutaAnual": {
+      "valor": 4800000,
+      "descricao": "Teto de receita bruta anual para permanecer no Simples Nacional.",
+      "fundamento": "LC 123/2006, art. 3º, II",
+      "efeito": "Ultrapassado, há exclusão do regime — imediata se o excesso for superior a 20%, ou no ano seguinte se inferior."
+    },
+    "sublimiteIcmsIss": {
+      "valor": 3600000,
+      "descricao": "Acima deste RBT12, ICMS e ISS deixam de ser recolhidos no DAS. A partir de 2027, conforme as Resoluções CGSN 190/191 de 2026, o sublimite também é considerado para o IBS dentro do Simples Nacional.",
+      "fundamento": "LC 123/2006, arts. 13-A, 19 e 20; Resoluções CGSN 190/191 de 2026",
+      "efeito": "ICMS/ISS ficam fora do DAS conforme a regra temporal aplicável; a partir de 2027 o IBS também fica impedido de recolhimento dentro do Simples. A CBS pode permanecer no DAS, salvo opção pelo regime regular de IBS/CBS.",
+      "fonteOficialAtualizacao2026": "https://www.gov.br/fazenda/pt-br/assuntos/noticias/2026/agosto/cgsn-atualiza-regras-do-simples-nacional-para-adequacao-a-reforma-tributaria-do-consumo"
+    },
+    "mei": {
+      "valor": 81000,
+      "descricao": "Limite do Microempreendedor Individual, que recolhe DAS em valor fixo e não usa as tabelas de faixas.",
+      "fundamento": "LC 123/2006, art. 18-A, § 1º",
+      "efeito": "Empresa MEI não deve ser calculada por alíquota efetiva; o painel apenas informa a condição."
+    }
+  },
+  "fatorR": {
+    "corte": 0.28,
+    "formula": "FS12 / RBT12",
+    "descricao": "Relação entre a folha de salários dos 12 meses anteriores e a receita bruta dos 12 meses anteriores.",
+    "fundamento": "LC 123/2006, art. 18, § 5º-M; Resolução CGSN 140/2018, art. 26",
+    "componentesFs12": {
+      "inclui": [
+        "salários",
+        "encargos: CPP e FGTS",
+        "pró-labore dos sócios",
+        "13º salário"
+      ],
+      "naoInclui": [
+        "aluguéis",
+        "distribuição de lucros",
+        "estagiários",
+        "contratação de MEI"
+      ]
+    },
+    "regras": [
+      {
+        "anexoInformado": "V",
+        "condicao": "fatorR >= 0.28",
+        "anexoEfetivo": "III",
+        "mensagem": "Fator R igual ou acima de 28% reenquadra a atividade no Anexo III, com carga menor."
+      },
+      {
+        "anexoInformado": "V",
+        "condicao": "fatorR < 0.28",
+        "anexoEfetivo": "V",
+        "mensagem": "Fator R abaixo de 28% mantém a atividade no Anexo V."
+      },
+      {
+        "anexoInformado": "III",
+        "condicao": "qualquer",
+        "anexoEfetivo": "III",
+        "mensagem": "Atividades originalmente do Anexo III não oscilam por Fator R."
+      },
+      {
+        "anexoInformado": "I",
+        "condicao": "qualquer",
+        "anexoEfetivo": "I",
+        "mensagem": "Fator R não se aplica ao comércio."
+      },
+      {
+        "anexoInformado": "II",
+        "condicao": "qualquer",
+        "anexoEfetivo": "II",
+        "mensagem": "Fator R não se aplica à indústria."
+      },
+      {
+        "anexoInformado": "IV",
+        "condicao": "qualquer",
+        "anexoEfetivo": "IV",
+        "mensagem": "Anexo IV não sofre Fator R; a CPP fica fora do DAS."
+      }
+    ]
+  },
+  "tetoIss": {
+    "percentualMaximo": 5,
+    "descricao": "A parcela de ISS dentro do DAS não pode exceder 5% da receita bruta do mês; o excedente é redistribuído proporcionalmente entre os demais tributos da faixa.",
+    "fundamento": "LC 123/2006, art. 18, §§ 1º-A e 1º-B",
+    "aplicaEm": [
+      { "anexo": "III", "faixa": 5 },
+      { "anexo": "IV", "faixa": 5 }
+    ]
+  },
+  "receitaBrutaConsiderada": {
+    "regimeDeCompetencia": "regime de caixa permitido por opção anual do contribuinte",
+    "excluiDoTotal": [
+      "vendas canceladas",
+      "descontos incondicionais concedidos"
+    ],
+    "segregacaoObrigatoria": [
+      "mercado interno e mercado externo (exportação não sofre tributos federais no DAS acima dos limites do art. 18, § 14)",
+      "receitas com substituição tributária, retenção ou tributação monofásica",
+      "receitas com ISS retido na fonte ou com ISS de valor fixo"
+    ],
+    "fundamento": "LC 123/2006, art. 3º, § 1º e art. 18, §§ 4º, 4º-A, 12 a 14"
+  },
+  "extratoPgdas": {
+    "descricao": "Campos que a plataforma extrai do extrato do PGDAS-D em PDF e usa como base declarada.",
+    "campos": [
+      { "campo": "cnpjCompleto", "uso": "conferência do contribuinte" },
+      { "campo": "periodoApuracao", "uso": "competência do PA declarado" },
+      { "campo": "receitaBrutaPA", "uso": "receita declarada do mês (mercado interno e externo)" },
+      { "campo": "rbt12", "uso": "receita bruta dos 12 meses anteriores — determina a faixa" },
+      { "campo": "receitasAnteriores", "uso": "série histórica de competências anteriores do próprio extrato" },
+      { "campo": "fatorR", "uso": "quando declarado, valida o enquadramento de anexo" },
+      { "campo": "anexoSimplesNacional", "uso": "anexo aplicado na declaração" }
+    ],
+    "regraDePrecedencia": "A competência do período de apuração prevalece sobre a mesma competência lida na série histórica de outro extrato.",
+    "observacao": "Um único extrato de dezembro cobre o ano inteiro, porque a seção de receitas anteriores traz as 12 competências precedentes."
+  },
+  "conferencia": {
+    "toleranciaReceitaDeclaradaPct": 5,
+    "descricao": "Divergência aceitável entre a receita fiscal apurada por documentos e a receita declarada no PGDAS-D.",
+    "regras": [
+      {
+        "id": "fiscal_maior_que_declarado",
+        "condicao": "receitaFiscal > receitaDeclarada + tolerância",
+        "situacao": "critico",
+        "leitura": "Há documento fiscal emitido acima do que foi declarado — risco de omissão de receita."
+      },
+      {
+        "id": "declarado_maior_que_fiscal",
+        "condicao": "receitaDeclarada > receitaFiscal + tolerância",
+        "situacao": "atencao",
+        "leitura": "Declarou mais do que os documentos importados somam — geralmente falta importar competências ou existe receita sem documento fiscal."
+      },
+      {
+        "id": "sem_pgdas",
+        "condicao": "extrato não importado",
+        "situacao": "sem_dados",
+        "leitura": "Sem PGDAS-D o optante fica sem contraprova de receita, porque a ECD é dispensada no regime."
+      }
+    ]
+  }
+}

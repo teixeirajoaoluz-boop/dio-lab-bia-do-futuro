@@ -1,0 +1,63 @@
+{
+  "versao": "1.0.0",
+  "atualizadoEm": "2026-08-10",
+  "descricao": "Regras canônicas de CFOP para o resumo por CFOP e para a validação de coerência entre natureza da operação e o fluxo (entrada/saída).",
+  "familias": {
+    "1": { "sentido": "entrada", "escopo": "Operação interna (mesma UF)", "espelho": "2" },
+    "2": { "sentido": "entrada", "escopo": "Operação interestadual", "espelho": "1" },
+    "3": { "sentido": "entrada", "escopo": "Importação / exterior", "espelho": null },
+    "5": { "sentido": "saida", "escopo": "Operação interna (mesma UF)", "espelho": "6" },
+    "6": { "sentido": "saida", "escopo": "Operação interestadual", "espelho": "5" },
+    "7": { "sentido": "saida", "escopo": "Exportação / exterior", "espelho": null }
+  },
+  "regrasCoerencia": [
+    {
+      "id": "cfop_sentido_invertido",
+      "descricao": "CFOP de saída (5/6/7) registrado como aquisição, ou CFOP de entrada (1/2/3) registrado como receita, indica erro de parametrização na importação.",
+      "situacao": "atencao",
+      "acao": "Revisar classificação do item no módulo Produtos ou reimportar o arquivo com a parametrização correta."
+    },
+    {
+      "id": "cfop_espelho_ausente",
+      "descricao": "CFOP relevante presente em uma família sem o par correspondente na outra UF pode indicar operação não escriturada.",
+      "situacao": "atencao",
+      "valorMinimoRelevante": 1000,
+      "acao": "Confirmar se a empresa realmente não opera nessa modalidade ou completar a importação."
+    }
+  ],
+  "gruposEspeciais": {
+    "servicos_tomados": {
+      "cfops": ["1933", "2933"],
+      "descricao": "Aquisição de serviço sujeito ao ISS, informado por planilha ou A170 da EFD Contribuições.",
+      "geraCredito": true
+    },
+    "sem_direito_credito": {
+      "cfops": ["1949", "2949"],
+      "descricao": "Outras entradas não classificadas — não geram crédito de IBS/CBS sem reclassificação.",
+      "geraCredito": false,
+      "acao": "Reclassificar o item para o CFOP correspondente à natureza real da operação."
+    },
+    "devolucao_venda_entrada": {
+      "cfops": ["1201", "1202", "1203", "1204", "1410", "1411", "2201", "2202", "2203", "2204", "2410", "2411"],
+      "descricao": "Devolução de venda registrada como entrada — reduz receita, não é aquisição.",
+      "tratamento": "Abater da receita bruta; não somar em aquisições."
+    },
+    "transferencia": {
+      "cfops": ["1151", "1152", "2151", "2152", "5151", "5152", "6151", "6152"],
+      "descricao": "Transferência entre estabelecimentos do mesmo titular.",
+      "tratamento": "Não compõe receita nem custo consolidado do grupo."
+    },
+    "remessa_retorno": {
+      "cfops": ["1901", "1902", "1903", "1904", "1915", "1916", "5901", "5902", "5915", "5916"],
+      "descricao": "Remessa e retorno de industrialização, conserto ou demonstração.",
+      "tratamento": "Operação sem natureza de receita ou custo definitivo."
+    }
+  },
+  "resumoPorCfop": {
+    "descricao": "Configuração do bloco 'Resumo por CFOP' do painel de Conferência de Dados.",
+    "agruparPor": ["sentido", "familia", "cfop"],
+    "metricas": ["quantidadeLinhas", "valorTotal", "participacaoPct", "origensArquivo", "mesesComMovimento"],
+    "ordenacao": "valorTotal_desc",
+    "destacar": ["cfop_sentido_invertido", "cfop_espelho_ausente", "sem_direito_credito"]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "versao": "1.0",
+  "fonte": "backend/base_sql/20_criar_tabela_aliquota_sn_ibs_cbs.sql e backend/base_sql/20_popular_aliquota_sn_ibs_cbs.py, dados de 01_api_participantes/DADOS API PARTICIPANTES/#ALIQUOTA_SN_IBS_CBS.csv",
+  "descricao": "Aliquotas EFETIVAS de CBS/IBS para fornecedores optantes pelo Simples Nacional, por Anexo (1 a 5) e faixa de receita MEDIA. Diferente do regime normal: aqui os valores ja sao a aliquota efetiva final por ano (nao ha aliquota referencial informada manualmente nem formula de conversao — os numeros vem prontos do CSV oficial).",
+  "observacao": "O CSV fonte so contem os Anexos 1 a 5 (faixa MEDIA). O comentario da tabela SQL menciona Anexos 1-6, mas nao ha registro de Anexo 6 nos dados populados no repositorio.",
+  "unidade": "percentual (aliquota efetiva)",
+  "aliquotas_por_anexo": [
+    {
+      "anexo": 1, "faixa": "MEDIA",
+      "2027_2028": { "cbs": 1.44, "ibs": 0.01 },
+      "2029": { "cbs": 1.46, "ibs": 0.19 },
+      "2030": { "cbs": 1.46, "ibs": 0.39 },
+      "2031": { "cbs": 1.46, "ibs": 0.58 },
+      "2032": { "cbs": 1.46, "ibs": 0.78 },
+      "2033": { "cbs": 1.46, "ibs": 1.94 }
+    },
+    {
+      "anexo": 2, "faixa": "MEDIA",
+      "2027_2028": { "cbs": 1.38, "ibs": 0.01 },
+      "2029": { "cbs": 1.40, "ibs": 0.20 },
+      "2030": { "cbs": 1.40, "ibs": 0.40 },
+      "2031": { "cbs": 1.40, "ibs": 0.59 },
+      "2032": { "cbs": 1.40, "ibs": 0.79 },
+      "2033": { "cbs": 1.40, "ibs": 1.98 }
+    },
+    {
+      "anexo": 3, "faixa": "MEDIA",
+      "2027_2028": { "cbs": 1.88, "ibs": 0.02 },
+      "2029": { "cbs": 1.95, "ibs": 0.28 },
+      "2030": { "cbs": 1.95, "ibs": 0.56 },
+      "2031": { "cbs": 1.95, "ibs": 0.84 },
+      "2032": { "cbs": 1.95, "ibs": 1.13 },
+      "2033": { "cbs": 1.95, "ibs": 2.82 }
+    },
+    {
+      "anexo": 4, "faixa": "MEDIA",
+      "2027_2028": { "cbs": 2.13, "ibs": 0.02 },
+      "2029": { "cbs": 2.15, "ibs": 0.28 },
+      "2030": { "cbs": 2.15, "ibs": 0.57 },
+      "2031": { "cbs": 2.15, "ibs": 0.85 },
+      "2032": { "cbs": 2.15, "ibs": 1.14 },
+      "2033": { "cbs": 2.15, "ibs": 2.85 }
+    },
+    {
+      "anexo": 5, "faixa": "MEDIA",
+      "2027_2028": { "cbs": 3.16, "ibs": 0.03 },
+      "2029": { "cbs": 3.20, "ibs": 0.28 },
+      "2030": { "cbs": 3.20, "ibs": 0.57 },
+      "2031": { "cbs": 3.20, "ibs": 0.85 },
+      "2032": { "cbs": 3.20, "ibs": 1.13 },
+      "2033": { "cbs": 3.20, "ibs": 2.83 }
+    }
+  ]
+}

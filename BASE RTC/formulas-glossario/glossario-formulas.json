@@ -1,0 +1,1992 @@
+[
+  {
+    "tabela": "aliquotas_transicao",
+    "coluna": "cbs_referencial",
+    "sigla": "cbs_ref",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "aliquotas_transicao",
+    "coluna": "ibs_referencial",
+    "sigla": "ibs_ref",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "aliquotas_transicao",
+    "coluna": "icms_referencial",
+    "sigla": "icms_ref",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "aliquotas_transicao",
+    "coluna": "iss_referencial",
+    "sigla": "iss_ref",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "aliquotas_transicao",
+    "coluna": "cbs_aplicada",
+    "sigla": "cbs_apl",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "aliquotas_transicao",
+    "coluna": "ibs_aplicada",
+    "sigla": "ibs_apl",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "aliquotas_transicao",
+    "coluna": "icms_aplicada",
+    "sigla": "icms_apl",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "aliquotas_transicao",
+    "coluna": "iss_aplicada",
+    "sigla": "iss_apl",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "premissas_taxa de crescimento",
+    "coluna": "ano",
+    "sigla": "ptc_ano",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "premissas_taxa de crescimento",
+    "coluna": "taxa de crescimento",
+    "sigla": "ptc_tx_crescimento",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "products",
+    "coluna": "cod_item",
+    "sigla": "cod_itm",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "products",
+    "coluna": "descr_item",
+    "sigla": "dsc_itm",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "products",
+    "coluna": "unid_inv",
+    "sigla": "und_inv",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "products",
+    "coluna": "cod_ncm",
+    "sigla": "ncm",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "products",
+    "coluna": "aliq_icms",
+    "sigla": "aliq_icm",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "products",
+    "coluna": "cst",
+    "sigla": "cst",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "products",
+    "coluna": "cclass_trib",
+    "sigla": "cls_trb",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "products",
+    "coluna": "descricao_reduzida",
+    "sigla": "dsc_red",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "products",
+    "coluna": "reducao_ibs",
+    "sigla": "red_ibs",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "products",
+    "coluna": "reducao_cbs",
+    "sigla": "red_cbs",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "products",
+    "coluna": "anexo",
+    "sigla": "anx",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "consolidated_revenues",
+    "coluna": "data",
+    "sigla": "dt",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "consolidated_revenues",
+    "coluna": "vl_opr",
+    "sigla": "vl_opr",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "consolidated_revenues",
+    "coluna": "codigo_item",
+    "sigla": "cod_itm",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "codigo_item_servico",
+    "sigla": "cod_itm_srv",
+    "expressao_texto": "Igual a cod_itm",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "descricao_produto_servico",
+    "sigla": "dsc_prd_srv",
+    "expressao_texto": "Igual a dsc_itm",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "reducao_ibs_percentual",
+    "sigla": "pct_red_ibs",
+    "expressao_texto": "Igual a red_ibs >> correspondente ao cod_itm_srv procurando na tabela products",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "reducao_cbs_percentual",
+    "sigla": "pct_red_cbs",
+    "expressao_texto": "Igual a red_cbs >> correspondente ao cod_itm_srv procurando na tabela products",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "valor_operacao_2027",
+    "sigla": "vl_opr_27",
+    "expressao_texto": "vl_opr + (vl_opr * ptc_tx_crescimento[2027])",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "percentual_ibs_2027",
+    "sigla": "pct_ibs_27",
+    "expressao_texto": "ibs_apl[2027] - (ibs_apl[2027] * pct_red_ibs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "valor_ibs_2027",
+    "sigla": "vl_ibs_27",
+    "expressao_texto": "vl_opr_27 * pct_ibs_27",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "percentual_cbs_2027",
+    "sigla": "pct_cbs_27",
+    "expressao_texto": "cbs_apl[2027] - (cbs_apl[2027] * pct_red_cbs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "valor_cbs_2027",
+    "sigla": "vl_cbs_27",
+    "expressao_texto": "vl_opr_27 * pct_cbs_27",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "valor_operacao_2028",
+    "sigla": "vl_opr_28",
+    "expressao_texto": "vl_opr_27 + (vl_opr_27 * ptc_tx_crescimento[2028])",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "percentual_ibs_2028",
+    "sigla": "pct_ibs_28",
+    "expressao_texto": "ibs_apl[2028] - (ibs_apl[2028] * pct_red_ibs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "valor_ibs_2028",
+    "sigla": "vl_ibs_28",
+    "expressao_texto": "vl_opr_28 * pct_ibs_28",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "percentual_cbs_2028",
+    "sigla": "pct_cbs_28",
+    "expressao_texto": "cbs_apl[2028] - (cbs_apl[2028] * pct_red_cbs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "valor_cbs_2028",
+    "sigla": "vl_cbs_28",
+    "expressao_texto": "vl_opr_28 * pct_cbs_28",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "valor_operacao_2029",
+    "sigla": "vl_opr_29",
+    "expressao_texto": "vl_opr_28 + (vl_opr_28 * ptc_tx_crescimento[2029])",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "percentual_ibs_2029",
+    "sigla": "pct_ibs_29",
+    "expressao_texto": "ibs_apl[2029] - (ibs_apl[2029] * pct_red_ibs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "valor_ibs_2029",
+    "sigla": "vl_ibs_29",
+    "expressao_texto": "vl_opr_29 * pct_ibs_29",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "percentual_cbs_2029",
+    "sigla": "pct_cbs_29",
+    "expressao_texto": "cbs_apl[2029] - (cbs_apl[2029] * pct_red_cbs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "valor_cbs_2029",
+    "sigla": "vl_cbs_29",
+    "expressao_texto": "vl_opr_29 * pct_cbs_29",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "valor_operacao_2030",
+    "sigla": "vl_opr_30",
+    "expressao_texto": "vl_opr_29 + (vl_opr_29 * ptc_tx_crescimento[2030])",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "percentual_ibs_2030",
+    "sigla": "pct_ibs_30",
+    "expressao_texto": "ibs_apl[2030] - (ibs_apl[2030] * pct_red_ibs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "valor_ibs_2030",
+    "sigla": "vl_ibs_30",
+    "expressao_texto": "vl_opr_30 * pct_ibs_30",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "percentual_cbs_2030",
+    "sigla": "pct_cbs_30",
+    "expressao_texto": "cbs_apl[2030] - (cbs_apl[2030] * pct_red_cbs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "valor_cbs_2030",
+    "sigla": "vl_cbs_30",
+    "expressao_texto": "vl_opr_30 * pct_cbs_30",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "valor_operacao_2031",
+    "sigla": "vl_opr_31",
+    "expressao_texto": "vl_opr_30 + (vl_opr_30 * ptc_tx_crescimento[2031])",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "percentual_ibs_2031",
+    "sigla": "pct_ibs_31",
+    "expressao_texto": "ibs_apl[2031] - (ibs_apl[2031] * pct_red_ibs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "valor_ibs_2031",
+    "sigla": "vl_ibs_31",
+    "expressao_texto": "vl_opr_31 * pct_ibs_31",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "percentual_cbs_2031",
+    "sigla": "pct_cbs_31",
+    "expressao_texto": "cbs_apl[2031] - (cbs_apl[2031] * pct_red_cbs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "valor_cbs_2031",
+    "sigla": "vl_cbs_31",
+    "expressao_texto": "vl_opr_31 * pct_cbs_31",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "valor_operacao_2032",
+    "sigla": "vl_opr_32",
+    "expressao_texto": "vl_opr_31 + (vl_opr_31 * ptc_tx_crescimento[2032])",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "percentual_ibs_2032",
+    "sigla": "pct_ibs_32",
+    "expressao_texto": "ibs_apl[2032] - (ibs_apl[2032] * pct_red_ibs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "valor_ibs_2032",
+    "sigla": "vl_ibs_32",
+    "expressao_texto": "vl_opr_32 * pct_ibs_32",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "percentual_cbs_2032",
+    "sigla": "pct_cbs_32",
+    "expressao_texto": "cbs_apl[2032] - (cbs_apl[2032] * pct_red_cbs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "valor_cbs_2032",
+    "sigla": "vl_cbs_32",
+    "expressao_texto": "vl_opr_32 * pct_cbs_32",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "valor_operacao_2033",
+    "sigla": "vl_opr_33",
+    "expressao_texto": "vl_opr_32 + (vl_opr_32 * ptc_tx_crescimento[2033])",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "percentual_ibs_2033",
+    "sigla": "pct_ibs_33",
+    "expressao_texto": "ibs_apl[2033] - (ibs_apl[2033] * pct_red_ibs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "valor_ibs_2033",
+    "sigla": "vl_ibs_33",
+    "expressao_texto": "vl_opr_33 * pct_ibs_33",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "percentual_cbs_2033",
+    "sigla": "pct_cbs_33",
+    "expressao_texto": "cbs_apl[2033] - (cbs_apl[2033] * pct_red_cbs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "receita_projecao",
+    "coluna": "valor_cbs_2033",
+    "sigla": "vl_cbs_33",
+    "expressao_texto": "vl_opr_33 * pct_cbs_33",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "aquisicoes_origem_fiscal",
+    "coluna": "data",
+    "sigla": "dt_aquisic_orig_fiscal",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "aquisicoes_origem_fiscal",
+    "coluna": "cod_participante",
+    "sigla": "cod_particip",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "aquisicoes_origem_fiscal",
+    "coluna": "nome_fornecedor",
+    "sigla": "nome_suppl",
+    "expressao_texto": "igual a nome_suppl",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "aquisicoes_origem_fiscal",
+    "coluna": "simples_nacional",
+    "sigla": "optanteSimplesNacional_suppl",
+    "expressao_texto": "igual optanteSimplesNacional_suppl",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "aquisicoes_origem_fiscal",
+    "coluna": "cod_produto",
+    "sigla": "cod_item",
+    "expressao_texto": "igual cod_itm da tabela products",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "aquisicoes_origem_fiscal",
+    "coluna": "descricao_produto",
+    "sigla": "descr_item",
+    "expressao_texto": "igual dsc_itm da tabela products",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "aquisicoes_origem_fiscal",
+    "coluna": "cfop",
+    "sigla": null,
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "aquisicoes_origem_fiscal",
+    "coluna": "descricao_cfop",
+    "sigla": null,
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "aquisicoes_origem_fiscal",
+    "coluna": "vl_aquisicao",
+    "sigla": "vl_aquisicao",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "aquisicoes_origem_fiscal",
+    "coluna": "origem_arquivo",
+    "sigla": null,
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "aquisicoes_origem_fiscal",
+    "coluna": "registro_origem",
+    "sigla": null,
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "aquisicoes_origem_fiscal",
+    "coluna": "cnpj",
+    "sigla": "cnpj_suppl",
+    "expressao_texto": "igual a cnpj_suppl",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "aquisicoes_origem_fiscal",
+    "coluna": "cpf",
+    "sigla": "cpf_suppl",
+    "expressao_texto": "igual a cpf_suppl",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "nome",
+    "sigla": "nome_suppl",
+    "expressao_texto": "igual a nome_suppl",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "cnpj",
+    "sigla": "cnpj_suppl",
+    "expressao_texto": "igual a cnpj_suppl",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "cpf",
+    "sigla": "cpf_suppl",
+    "expressao_texto": "igual a cpf_suppl",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "optanteSimplesNacional",
+    "sigla": "optanteSimplesNacional_suppl",
+    "expressao_texto": "igual a optanteSimplesNacional_suppl",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "codigo_item_servico",
+    "sigla": "cod_itm_srv",
+    "expressao_texto": "Igual a cod_itm",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "descricao_produto_servico",
+    "sigla": "dsc_prd_srv",
+    "expressao_texto": "Igual a dsc_itm",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "reducao_ibs_percentual",
+    "sigla": "pct_red_ibs",
+    "expressao_texto": "Igual a red_ibs correspondente ao cod_itm_srv na tabela products. Quando produto não encontrado: usar 0 (padrão referência do ano ibs_apl)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "reducao_cbs_percentual",
+    "sigla": "pct_red_cbs",
+    "expressao_texto": "Igual a red_cbs correspondente ao cod_itm_srv na tabela products. Quando produto não encontrado: usar 0 (padrão referência do ano cbs_apl)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "valor_aquisicao_2027",
+    "sigla": "vl_aquisicao_27",
+    "expressao_texto": "vl_aquisicao + (vl_aquisicao * ptc_tx_crescimento[2027])",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "cbs_2027_2028_sn",
+    "sigla": "cbs_2027_2028_sn",
+    "expressao_texto": "se optanteSimplesNacional_suppl = SIM - aplicar igual a cbs_2027_2028_sn - busca da tabela suppliers - cnpj_suppl ou cpf_suppl",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "ibs_2027_2028_sn",
+    "sigla": "ibs_2027_2028_sn",
+    "expressao_texto": "se optanteSimplesNacional_suppl = SIM - aplicar igual a ibs_2027_2028_sn - busca da tabela suppliers  - cnpj_suppl ou cpf_suppl",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "percentual_ibs_2027",
+    "sigla": "pct_ibs_27",
+    "expressao_texto": "se optanteSimplesNacional_suppl = NAO - aplicar ibs_apl[2027] - (ibs_apl[2027] * pct_red_ibs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "valor_ibs_2027",
+    "sigla": "vl_ibs_27",
+    "expressao_texto": "(vl_aquisicao_27 * pct_ibs_27) + (vl_aquisicao_27 * ibs_2027_2028_sn)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "percentual_cbs_2027",
+    "sigla": "pct_cbs_27",
+    "expressao_texto": "se optanteSimplesNacional_suppl = NAO - aplicar cbs_apl[2027] - (cbs_apl[2027] * pct_red_cbs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "valor_cbs_2027",
+    "sigla": "vl_cbs_27",
+    "expressao_texto": "(vl_aquisicao_27 * pct_cbs_27) + (vl_aquisicao_27 * cbs_2027_2028_sn)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "valor_aquisicao_2028",
+    "sigla": "vl_aquisicao_28",
+    "expressao_texto": "vl_aquisicao + (vl_aquisicao * ptc_tx_crescimento[2028])",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "cbs_2027_2028_sn",
+    "sigla": "cbs_2027_2028_sn",
+    "expressao_texto": "se optanteSimplesNacional_suppl = SIM - aplicar igual a cbs_2027_2028_sn - busca da tabela suppliers - cnpj_suppl ou cpf_suppl",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "ibs_2027_2028_sn",
+    "sigla": "ibs_2027_2028_sn",
+    "expressao_texto": "se optanteSimplesNacional_suppl = SIM - aplicar igual a ibs_2027_2028_sn - busca da tabela suppliers  - cnpj_suppl ou cpf_suppl",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "percentual_ibs_2028",
+    "sigla": "pct_ibs_28",
+    "expressao_texto": "se optanteSimplesNacional_suppl = NAO - aplicar ibs_apl[2028] - (ibs_apl[2028] * pct_red_ibs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "valor_ibs_2028",
+    "sigla": "vl_ibs_28",
+    "expressao_texto": "(vl_aquisicao_28 * pct_ibs_28) + (vl_aquisicao_28 * ibs_2027_2028_sn)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "percentual_cbs_2028",
+    "sigla": "pct_cbs_28",
+    "expressao_texto": "se optanteSimplesNacional_suppl = NAO - aplicar cbs_apl[2028] - (cbs_apl[2028] * pct_red_cbs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "valor_cbs_2028",
+    "sigla": "vl_cbs_28",
+    "expressao_texto": "(vl_aquisicao_28 * pct_cbs_28) + (vl_aquisicao_28 * cbs_2027_2028_sn)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "valor_aquisicao_2029",
+    "sigla": "vl_aquisicao_29",
+    "expressao_texto": "vl_aquisicao + (vl_aquisicao * ptc_tx_crescimento[2029])",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "cbs_2029_sn",
+    "sigla": "cbs_2029_sn",
+    "expressao_texto": "se optanteSimplesNacional_suppl = SIM - aplicar igual a cbs_2029_sn - busca da tabela suppliers  - cnpj_suppl ou cpf_suppl",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "ibs_2029_sn",
+    "sigla": "ibs_2029_sn",
+    "expressao_texto": "se optanteSimplesNacional_suppl = SIM - aplicar igual a ibs_2029_sn - busca da tabela suppliers  - cnpj_suppl ou cpf_suppl",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "percentual_ibs_2029",
+    "sigla": "pct_ibs_29",
+    "expressao_texto": "se optanteSimplesNacional_suppl = NAO - aplicar ibs_apl[2029] - (ibs_apl[2029] * pct_red_ibs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "valor_ibs_2029",
+    "sigla": "vl_ibs_29",
+    "expressao_texto": "(vl_aquisicao_29 * pct_ibs_29) + (vl_aquisicao_29 * ibs_2029_sn)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "percentual_cbs_2029",
+    "sigla": "pct_cbs_29",
+    "expressao_texto": "se optanteSimplesNacional_suppl = NAO - aplicar cbs_apl[2029] - (cbs_apl[2029] * pct_red_cbs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "valor_cbs_2029",
+    "sigla": "vl_cbs_29",
+    "expressao_texto": "(vl_aquisicao_29 * pct_cbs_29) + (vl_aquisicao_29 * cbs_2029_sn)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "valor_aquisicao_2030",
+    "sigla": "vl_aquisicao_30",
+    "expressao_texto": "vl_aquisicao + (vl_aquisicao * ptc_tx_crescimento[2030])",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "cbs_2030_sn",
+    "sigla": "cbs_2030_sn",
+    "expressao_texto": "se optanteSimplesNacional_suppl = SIM - aplicar igual a cbs_2030_sn - busca da tabela suppliers  - cnpj_suppl ou cpf_suppl",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "ibs_2030_sn",
+    "sigla": "ibs_2030_sn",
+    "expressao_texto": "se optanteSimplesNacional_suppl = SIM - aplicar igual a ibs_2030_sn - busca da tabela suppliers  - cnpj_suppl ou cpf_suppl",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "percentual_ibs_2030",
+    "sigla": "pct_ibs_30",
+    "expressao_texto": "se optanteSimplesNacional_suppl = NAO - aplicar ibs_apl[2030] - (ibs_apl[2030] * pct_red_ibs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "valor_ibs_2030",
+    "sigla": "vl_ibs_30",
+    "expressao_texto": "(vl_aquisicao_30 * pct_ibs_30) + (vl_aquisicao_30 * ibs_2030_sn)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "percentual_cbs_2030",
+    "sigla": "pct_cbs_30",
+    "expressao_texto": "se optanteSimplesNacional_suppl = NAO - aplicar cbs_apl[2030] - (cbs_apl[2030] * pct_red_cbs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "valor_cbs_2030",
+    "sigla": "vl_cbs_30",
+    "expressao_texto": "(vl_aquisicao_30 * pct_cbs_30) + (vl_aquisicao_30 * cbs_2030_sn)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "valor_aquisicao_2031",
+    "sigla": "vl_aquisicao_31",
+    "expressao_texto": "vl_aquisicao + (vl_aquisicao * ptc_tx_crescimento[2031])",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "cbs_2031_sn",
+    "sigla": "cbs_2031_sn",
+    "expressao_texto": "se optanteSimplesNacional_suppl = SIM - aplicar igual a cbs_2031_sn - busca da tabela suppliers  - cnpj_suppl ou cpf_suppl",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "ibs_2031_sn",
+    "sigla": "ibs_2031_sn",
+    "expressao_texto": "se optanteSimplesNacional_suppl = SIM - aplicar igual a ibs_2031_sn - busca da tabela suppliers  - cnpj_suppl ou cpf_suppl",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "percentual_ibs_2031",
+    "sigla": "pct_ibs_31",
+    "expressao_texto": "se optanteSimplesNacional_suppl = NAO - aplicar ibs_apl[2031] - (ibs_apl[2031] * pct_red_ibs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "valor_ibs_2031",
+    "sigla": "vl_ibs_31",
+    "expressao_texto": "(vl_aquisicao_31 * pct_ibs_31) + (vl_aquisicao_31 * ibs_2031_sn)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "percentual_cbs_2031",
+    "sigla": "pct_cbs_31",
+    "expressao_texto": "se optanteSimplesNacional_suppl = NAO - aplicar cbs_apl[2031] - (cbs_apl[2031] * pct_red_cbs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "valor_cbs_2031",
+    "sigla": "vl_cbs_31",
+    "expressao_texto": "(vl_aquisicao_31 * pct_cbs_31) + (vl_aquisicao_31 * cbs_2031_sn)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "valor_aquisicao_2032",
+    "sigla": "vl_aquisicao_32",
+    "expressao_texto": "vl_aquisicao + (vl_aquisicao * ptc_tx_crescimento[2032])",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "cbs_2032_sn",
+    "sigla": "cbs_2032_sn",
+    "expressao_texto": "se optanteSimplesNacional_suppl = SIM - aplicar igual a cbs_2032_sn - busca da tabela suppliers  - cnpj_suppl ou cpf_suppl",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "ibs_2032_sn",
+    "sigla": "ibs_2032_sn",
+    "expressao_texto": "se optanteSimplesNacional_suppl = SIM - aplicar igual a ibs_2032_sn - busca da tabela suppliers  - cnpj_suppl ou cpf_suppl",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "percentual_ibs_2032",
+    "sigla": "pct_ibs_32",
+    "expressao_texto": "se optanteSimplesNacional_suppl = NAO - aplicar ibs_apl[2032] - (ibs_apl[2032] * pct_red_ibs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "valor_ibs_2032",
+    "sigla": "vl_ibs_32",
+    "expressao_texto": "(vl_aquisicao_32 * pct_ibs_32) + (vl_aquisicao_32 * ibs_2032_sn)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "percentual_cbs_2032",
+    "sigla": "pct_cbs_32",
+    "expressao_texto": "se optanteSimplesNacional_suppl = NAO - aplicar cbs_apl[2032] - (cbs_apl[2032] * pct_red_cbs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "valor_cbs_2032",
+    "sigla": "vl_cbs_32",
+    "expressao_texto": "(vl_aquisicao_32 * pct_cbs_32) + (vl_aquisicao_32 * cbs_2032_sn)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "valor_aquisicao_2033",
+    "sigla": "vl_aquisicao_33",
+    "expressao_texto": "vl_aquisicao + (vl_aquisicao * ptc_tx_crescimento[2033])",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "cbs_2033_sn",
+    "sigla": "cbs_2033_sn",
+    "expressao_texto": "se optanteSimplesNacional_suppl = SIM - aplicar igual a cbs_2033_sn - busca da tabela suppliers  - cnpj_suppl ou cpf_suppl",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "ibs_2033_sn",
+    "sigla": "ibs_2033_sn",
+    "expressao_texto": "se optanteSimplesNacional_suppl = SIM - aplicar igual a ibs_2033_sn - busca da tabela suppliers  - cnpj_suppl ou cpf_suppl",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "percentual_ibs_2033",
+    "sigla": "pct_ibs_33",
+    "expressao_texto": "se optanteSimplesNacional_suppl = NAO - aplicar ibs_apl[2033] - (ibs_apl[2033] * pct_red_ibs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "valor_ibs_2033",
+    "sigla": "vl_ibs_33",
+    "expressao_texto": "(vl_aquisicao_33 * pct_ibs_33) + (vl_aquisicao_33 * ibs_2033_sn)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "percentual_cbs_2033",
+    "sigla": "pct_cbs_33",
+    "expressao_texto": "se optanteSimplesNacional_suppl = NAO - aplicar cbs_apl[2033] - (cbs_apl[2033] * pct_red_cbs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions",
+    "coluna": "valor_cbs_2033",
+    "sigla": "vl_cbs_33",
+    "expressao_texto": "(vl_aquisicao_33 * pct_cbs_33) + (vl_aquisicao_33 * cbs_2033_sn)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "suppliers",
+    "coluna": "nome",
+    "sigla": "nome_suppl",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "suppliers",
+    "coluna": "cnpj",
+    "sigla": "cnpj_suppl",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "suppliers",
+    "coluna": "cpf",
+    "sigla": "cpf_suppl",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "suppliers",
+    "coluna": "optanteSimplesNacional",
+    "sigla": "optanteSimplesNacional_suppl",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "suppliers",
+    "coluna": "cnaePrincipal",
+    "sigla": "cnaePrincipal_suppl",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "suppliers",
+    "coluna": "cnaePrincipalDescricao",
+    "sigla": "cnaePrincipalDescricao_suppl",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "suppliers",
+    "coluna": "anexoSn",
+    "sigla": "anexoSn",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "suppliers",
+    "coluna": "cbs_2027_2028",
+    "sigla": "cbs_2027_2028_sn",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "suppliers",
+    "coluna": "ibs_2027_2028",
+    "sigla": "ibs_2027_2028_sn",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "suppliers",
+    "coluna": "cbs_2029",
+    "sigla": "cbs_2029_sn",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "suppliers",
+    "coluna": "ibs_2029",
+    "sigla": "ibs_2029_sn",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "suppliers",
+    "coluna": "cbs_2030",
+    "sigla": "cbs_2030_sn",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "suppliers",
+    "coluna": "ibs_2030",
+    "sigla": "ibs_2030_sn",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "suppliers",
+    "coluna": "cbs_2031",
+    "sigla": "cbs_2031_sn",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "suppliers",
+    "coluna": "ibs_2031",
+    "sigla": "ibs_2031_sn",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "suppliers",
+    "coluna": "cbs_2032",
+    "sigla": "cbs_2032_sn",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "suppliers",
+    "coluna": "ibs_2032",
+    "sigla": "ibs_2032_sn",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "suppliers",
+    "coluna": "cbs_2033",
+    "sigla": "cbs_2033_sn",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "suppliers",
+    "coluna": "ibs_2033",
+    "sigla": "ibs_2033_sn",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "plano_contas",
+    "coluna": "cod_nat",
+    "sigla": "cod_nat",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "plano_contas",
+    "coluna": "ind_cta",
+    "sigla": "ind_cta",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "plano_contas",
+    "coluna": "nivel",
+    "sigla": "nivel",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "plano_contas",
+    "coluna": "cod_cta",
+    "sigla": "cod_cta",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "plano_contas",
+    "coluna": "cta",
+    "sigla": "cta",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "plano_contas",
+    "coluna": "registro_origem",
+    "sigla": "registro_origem",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "plano_contas",
+    "coluna": "gerar_credito_debito_iva",
+    "sigla": "gerar_credito_debito_iva",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "balancete_contas_resultado",
+    "coluna": "data",
+    "sigla": "data",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "balancete_contas_resultado",
+    "coluna": "conta_contabil",
+    "sigla": "conta_contabil",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "balancete_contas_resultado",
+    "coluna": "valor",
+    "sigla": "valor",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "balancete_contas_resultado",
+    "coluna": "ind_dc",
+    "sigla": "ind_dc",
+    "expressao_texto": null,
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "conta_contabil",
+    "sigla": "conta_contabil",
+    "expressao_texto": "Somente sera indicado aqui quando tivermos a GERACAO CREDITO/DEBITO = SIM - da tabela balancete_contas_resultado",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "valor_aquisicao_2027",
+    "sigla": "vl_aquisicao_27",
+    "expressao_texto": "vl_aquisicao + (vl_aquisicao * ptc_tx_crescimento[2027])",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "percentual_ibs_2027",
+    "sigla": "pct_ibs_27",
+    "expressao_texto": "aplicar ibs_apl[2027] - (ibs_apl[2027] * pct_red_ibs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "valor_ibs_2027",
+    "sigla": "vl_ibs_27",
+    "expressao_texto": "(vl_aquisicao_27 * pct_ibs_27)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "percentual_cbs_2027",
+    "sigla": "pct_cbs_27",
+    "expressao_texto": "aplicar cbs_apl[2027] - (cbs_apl[2027] * pct_red_cbs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "valor_cbs_2027",
+    "sigla": "vl_cbs_27",
+    "expressao_texto": "(vl_aquisicao_27 * pct_cbs_27)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "valor_aquisicao_2028",
+    "sigla": "vl_aquisicao_28",
+    "expressao_texto": "vl_aquisicao + (vl_aquisicao * ptc_tx_crescimento[2028])",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "percentual_ibs_2028",
+    "sigla": "pct_ibs_28",
+    "expressao_texto": "aplicar ibs_apl[2028] - (ibs_apl[2028] * pct_red_ibs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "valor_ibs_2028",
+    "sigla": "vl_ibs_28",
+    "expressao_texto": "(vl_aquisicao_28 * pct_ibs_28)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "percentual_cbs_2028",
+    "sigla": "pct_cbs_28",
+    "expressao_texto": "aplicar cbs_apl[2028] - (cbs_apl[2028] * pct_red_cbs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "valor_cbs_2028",
+    "sigla": "vl_cbs_28",
+    "expressao_texto": "(vl_aquisicao_28 * pct_cbs_28)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "valor_aquisicao_2029",
+    "sigla": "vl_aquisicao_29",
+    "expressao_texto": "vl_aquisicao + (vl_aquisicao * ptc_tx_crescimento[2029])",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "percentual_ibs_2029",
+    "sigla": "pct_ibs_29",
+    "expressao_texto": "aplicar ibs_apl[2029] - (ibs_apl[2029] * pct_red_ibs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "valor_ibs_2029",
+    "sigla": "vl_ibs_29",
+    "expressao_texto": "(vl_aquisicao_29 * pct_ibs_29)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "percentual_cbs_2029",
+    "sigla": "pct_cbs_29",
+    "expressao_texto": "aplicar cbs_apl[2029] - (cbs_apl[2029] * pct_red_cbs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "valor_cbs_2029",
+    "sigla": "vl_cbs_29",
+    "expressao_texto": "(vl_aquisicao_29 * pct_cbs_29)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "valor_aquisicao_2030",
+    "sigla": "vl_aquisicao_30",
+    "expressao_texto": "vl_aquisicao + (vl_aquisicao * ptc_tx_crescimento[2030])",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "percentual_ibs_2030",
+    "sigla": "pct_ibs_30",
+    "expressao_texto": "aplicar ibs_apl[2030] - (ibs_apl[2030] * pct_red_ibs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "valor_ibs_2030",
+    "sigla": "vl_ibs_30",
+    "expressao_texto": "(vl_aquisicao_30 * pct_ibs_30)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "percentual_cbs_2030",
+    "sigla": "pct_cbs_30",
+    "expressao_texto": "aplicar cbs_apl[2030] - (cbs_apl[2030] * pct_red_cbs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "valor_cbs_2030",
+    "sigla": "vl_cbs_30",
+    "expressao_texto": "(vl_aquisicao_30 * pct_cbs_30)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "valor_aquisicao_2031",
+    "sigla": "vl_aquisicao_31",
+    "expressao_texto": "vl_aquisicao + (vl_aquisicao * ptc_tx_crescimento[2031])",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "percentual_ibs_2031",
+    "sigla": "pct_ibs_31",
+    "expressao_texto": "aplicar ibs_apl[2031] - (ibs_apl[2031] * pct_red_ibs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "valor_ibs_2031",
+    "sigla": "vl_ibs_31",
+    "expressao_texto": "(vl_aquisicao_31 * pct_ibs_31)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "percentual_cbs_2031",
+    "sigla": "pct_cbs_31",
+    "expressao_texto": "aplicar cbs_apl[2031] - (cbs_apl[2031] * pct_red_cbs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "valor_cbs_2031",
+    "sigla": "vl_cbs_31",
+    "expressao_texto": "(vl_aquisicao_31 * pct_cbs_31)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "valor_aquisicao_2032",
+    "sigla": "vl_aquisicao_32",
+    "expressao_texto": "vl_aquisicao + (vl_aquisicao * ptc_tx_crescimento[2032])",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "percentual_ibs_2032",
+    "sigla": "pct_ibs_32",
+    "expressao_texto": "aplicar ibs_apl[2032] - (ibs_apl[2032] * pct_red_ibs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "valor_ibs_2032",
+    "sigla": "vl_ibs_32",
+    "expressao_texto": "(vl_aquisicao_32 * pct_ibs_32)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "percentual_cbs_2032",
+    "sigla": "pct_cbs_32",
+    "expressao_texto": "aplicar cbs_apl[2032] - (cbs_apl[2032] * pct_red_cbs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "valor_cbs_2032",
+    "sigla": "vl_cbs_32",
+    "expressao_texto": "(vl_aquisicao_32 * pct_cbs_32)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "valor_aquisicao_2033",
+    "sigla": "vl_aquisicao_33",
+    "expressao_texto": "vl_aquisicao + (vl_aquisicao * ptc_tx_crescimento[2033])",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "percentual_ibs_2033",
+    "sigla": "pct_ibs_33",
+    "expressao_texto": "aplicar ibs_apl[2033] - (ibs_apl[2033] * pct_red_ibs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "valor_ibs_2033",
+    "sigla": "vl_ibs_33",
+    "expressao_texto": "(vl_aquisicao_33 * pct_ibs_33)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "percentual_cbs_2033",
+    "sigla": "pct_cbs_33",
+    "expressao_texto": "aplicar cbs_apl[2033] - (cbs_apl[2033] * pct_red_cbs)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  },
+  {
+    "tabela": "projecoes-acquisitions-contabil",
+    "coluna": "valor_cbs_2033",
+    "sigla": "vl_cbs_33",
+    "expressao_texto": "(vl_aquisicao_33 * pct_cbs_33)",
+    "descricao": null,
+    "entradas": null,
+    "autor": null,
+    "versao": null
+  }
+]

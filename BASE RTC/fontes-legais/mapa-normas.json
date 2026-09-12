@@ -1,0 +1,35 @@
+{
+  "_observacao": "Este arquivo NÃO mapeia artigos de lei (LC 214/2025, EC 132/2023). O módulo-fonte (fontes_legais.py) mapeia temas a duas planilhas Excel do curso, não a texto normativo. Ver README.md para detalhes da lacuna.",
+  "fonte_modulo": "mcp_planejamento_rtc/fontes_legais.py",
+  "fontes": [
+    {
+      "tema": "aliquotas_transicao_cbs_ibs_icms",
+      "descricao": "Alíquotas gerais e por ano (2027-2033) de CBS, IBS, e fator de redução do ICMS durante a transição da Reforma Tributária.",
+      "arquivo": "MÓDULO 06 - AULAS 29 A 35 - ALIQUOTAS.xlsx",
+      "aba": "ANÁLISE DAS ALÍQUOTAS DE TRANSI",
+      "caminho_base": "G:\\Meu Drive\\Projetos de Execução\\MCP\\mcp-planejamento-RTC\\Legislações\\Reforma_Tributaria\\Materiais_Curso",
+      "campos_gerais": ["cbs", "ibs", "icms", "iss"],
+      "campos_por_ano": ["cbs", "ibs", "icms_fator"],
+      "anos_cobertos": [2027, 2028, 2029, 2030, 2031, 2032, 2033],
+      "regras_especiais": [
+        "2027 e 2028: icms_fator forçado para 1.0 (ICMS integral) porque esses anos não aparecem no bloco direito da planilha",
+        "2028: cbs e ibs copiados dos valores de 2027 (mesmo bloco '2027 - 2028' na planilha)"
+      ],
+      "funcao": "extrair_transicao_oficial"
+    },
+    {
+      "tema": "produtos_ncm_lc214",
+      "descricao": "Tabela consolidada de produtos/NCM/NBS com tratamento tributário diferenciado (redução/alíquota) prevista na LC 214/2025.",
+      "arquivo": "MÓDULO 06 - AULAS 01 A 18 - PRODUTOS LCP 214.xlsx",
+      "aba": "Consolidado",
+      "caminho_base": "G:\\Meu Drive\\Projetos de Execução\\MCP\\mcp-planejamento-RTC\\Legislações\\Reforma_Tributaria\\Materiais_Curso",
+      "campos": ["anexo", "item", "descricao", "nbs_ncm", "tipo", "pct"],
+      "busca": "por termo em nbs_ncm ou em descricao (case-insensitive, substring)",
+      "funcao": "consultar_produto"
+    }
+  ],
+  "gap_artigos_de_lei": {
+    "existe_no_arquivo_fonte": false,
+    "observacao": "Nenhum número de artigo, inciso, parágrafo ou nome de norma (além dos títulos das planilhas) aparece em fontes_legais.py. Se um mapeamento tema→artigo (LC 214/2025, EC 132/2023, NTs do Comitê Gestor do IBS) existir no projeto, está em outro módulo não coberto por esta tarefa."
+  }
+}

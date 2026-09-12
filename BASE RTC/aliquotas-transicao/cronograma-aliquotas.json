@@ -1,0 +1,67 @@
+{
+  "versao": "1.0",
+  "fonte": "backend/base_sql/24_criar_function_gerar_aliquotas_transicao.sql (function gerar_aliquotas_transicao) e backend/base_sql/24_README_ALIQUOTAS_TRANSICAO.md",
+  "descricao": "Cronograma de conversao da aliquota REFERENCIAL (informada manualmente por empresa) em aliquota APLICADA, ano a ano, para regime normal (nao-Simples Nacional). CBS e IBS convergem para valores da Reforma; ICMS e ISS sao progressivamente extintos.",
+  "unidade": "percentual sobre a aliquota referencial informada, exceto CBS e IBS 2027-2028 que sao valores fixos absolutos",
+  "cronograma": [
+    {
+      "ano": 2027,
+      "cbs_aplicada": { "regra": "fixo", "valor_pct": 8.40 },
+      "ibs_aplicada": { "regra": "fixo", "valor_pct": 0.10 },
+      "icms_aplicada": { "regra": "percentual_da_referencial", "fator": 1.00 },
+      "iss_aplicada": { "regra": "percentual_da_referencial", "fator": 1.00 }
+    },
+    {
+      "ano": 2028,
+      "cbs_aplicada": { "regra": "fixo", "valor_pct": 8.40 },
+      "ibs_aplicada": { "regra": "fixo", "valor_pct": 0.10 },
+      "icms_aplicada": { "regra": "percentual_da_referencial", "fator": 1.00 },
+      "iss_aplicada": { "regra": "percentual_da_referencial", "fator": 1.00 }
+    },
+    {
+      "ano": 2029,
+      "cbs_aplicada": { "regra": "fixo", "valor_pct": 8.50 },
+      "ibs_aplicada": { "regra": "percentual_da_referencial", "fator": 0.10 },
+      "icms_aplicada": { "regra": "percentual_da_referencial", "fator": 0.90 },
+      "iss_aplicada": { "regra": "percentual_da_referencial", "fator": 0.90 }
+    },
+    {
+      "ano": 2030,
+      "cbs_aplicada": { "regra": "fixo", "valor_pct": 8.50 },
+      "ibs_aplicada": { "regra": "percentual_da_referencial", "fator": 0.20 },
+      "icms_aplicada": { "regra": "percentual_da_referencial", "fator": 0.80 },
+      "iss_aplicada": { "regra": "percentual_da_referencial", "fator": 0.80 }
+    },
+    {
+      "ano": 2031,
+      "cbs_aplicada": { "regra": "fixo", "valor_pct": 8.50 },
+      "ibs_aplicada": { "regra": "percentual_da_referencial", "fator": 0.30 },
+      "icms_aplicada": { "regra": "percentual_da_referencial", "fator": 0.70 },
+      "iss_aplicada": { "regra": "percentual_da_referencial", "fator": 0.70 }
+    },
+    {
+      "ano": 2032,
+      "cbs_aplicada": { "regra": "fixo", "valor_pct": 8.50 },
+      "ibs_aplicada": { "regra": "percentual_da_referencial", "fator": 0.40 },
+      "icms_aplicada": { "regra": "percentual_da_referencial", "fator": 0.60 },
+      "iss_aplicada": { "regra": "percentual_da_referencial", "fator": 0.60 }
+    },
+    {
+      "ano": 2033,
+      "cbs_aplicada": { "regra": "fixo", "valor_pct": 8.50 },
+      "ibs_aplicada": { "regra": "percentual_da_referencial", "fator": 1.00 },
+      "icms_aplicada": { "regra": "extinto", "valor_pct": 0 },
+      "iss_aplicada": { "regra": "extinto", "valor_pct": 0 }
+    }
+  ],
+  "exemplo_com_referencial_cbs_8_5_ibs_5_icms_18_iss_5": {
+    "fonte": "backend/base_sql/24_README_ALIQUOTAS_TRANSICAO.md (tabela de exemplo pratico)",
+    "2027": { "cbs": 8.40, "ibs": 0.10, "icms": 18.00, "iss": 5.00 },
+    "2028": { "cbs": 8.40, "ibs": 0.10, "icms": 18.00, "iss": 5.00 },
+    "2029": { "cbs": 8.50, "ibs": 0.50, "icms": 16.20, "iss": 4.50 },
+    "2030": { "cbs": 8.50, "ibs": 1.00, "icms": 14.40, "iss": 4.00 },
+    "2031": { "cbs": 8.50, "ibs": 1.50, "icms": 12.60, "iss": 3.50 },
+    "2032": { "cbs": 8.50, "ibs": 2.00, "icms": 10.80, "iss": 3.00 },
+    "2033": { "cbs": 8.50, "ibs": 5.00, "icms": 0.00, "iss": 0.00 }
+  }
+}

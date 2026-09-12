@@ -1,0 +1,360 @@
+{
+  "versao": "1.0.0",
+  "atualizadoEm": "2026-08-10",
+  "descricao": "Tabelas dos Anexos I a V do Simples Nacional: faixas de RBT12, alíquota nominal, parcela a deduzir e repartição dos tributos dentro do DAS. Base para calcular alíquota efetiva e desmembrar o DAS por tributo.",
+  "fonte": {
+    "normativa": "LC 123/2006, art. 18 e Anexos I a V (redação da LC 155/2016)",
+    "referenciaOperacional": "Simulador Guerra RTC — sn-transicao (constante FAIXAS) e dominando-simples (motor-sn.js)",
+    "confianca": "alta"
+  },
+  "formulas": {
+    "aliquotaEfetiva": {
+      "expressao": "((RBT12 * aliquotaNominal) - parcelaDeduzir) / RBT12",
+      "resultado": "percentual efetivo aplicado sobre a receita bruta do mês",
+      "fundamento": "LC 123/2006, art. 18, § 1º-A"
+    },
+    "valorDas": {
+      "expressao": "receitaBrutaMes * aliquotaEfetiva",
+      "observacao": "Receita do mês, não a receita acumulada. O RBT12 serve apenas para achar a faixa."
+    },
+    "reparticaoTributo": {
+      "expressao": "valorDas * (percentualDoTributoNaFaixa / 100)",
+      "observacao": "A soma dos percentuais de repartição de cada faixa é 100%."
+    },
+    "rbt12": {
+      "expressao": "soma da receita bruta dos 12 meses anteriores ao período de apuração",
+      "inicioAtividade": "Nos 12 primeiros meses, proporcionalizar: média da receita dos meses de atividade × 12.",
+      "fundamento": "LC 123/2006, art. 3º, § 2º e art. 18, §§ 1º e 2º"
+    }
+  },
+  "tributos": {
+    "irpj": "Imposto de Renda da Pessoa Jurídica",
+    "csll": "Contribuição Social sobre o Lucro Líquido",
+    "cofins": "COFINS — substituída pela CBS no cronograma da Reforma",
+    "pis": "PIS/PASEP — substituído pela CBS no cronograma da Reforma",
+    "cpp": "Contribuição Patronal Previdenciária",
+    "icms": "ICMS — substituído pelo IBS no cronograma da Reforma",
+    "iss": "ISS — substituído pelo IBS no cronograma da Reforma",
+    "ipi": "IPI — mantido com função extrafiscal / Imposto Seletivo"
+  },
+  "anexos": [
+    {
+      "id": "I",
+      "nome": "Anexo I — Comércio",
+      "atividadesTipicas": ["revenda de mercadorias", "comércio varejista", "comércio atacadista"],
+      "tributoLocal": "icms",
+      "sujeitoFatorR": false,
+      "fundamento": "LC 123/2006, Anexo I",
+      "faixas": [
+        {
+          "faixa": 1,
+          "rbt12De": 0,
+          "rbt12Ate": 180000,
+          "aliquotaNominal": 4.0,
+          "parcelaDeduzir": 0,
+          "reparticao": { "irpj": 5.5, "csll": 3.5, "cofins": 12.74, "pis": 2.76, "cpp": 41.5, "icms": 34.0 }
+        },
+        {
+          "faixa": 2,
+          "rbt12De": 180000.01,
+          "rbt12Ate": 360000,
+          "aliquotaNominal": 7.3,
+          "parcelaDeduzir": 5940,
+          "reparticao": { "irpj": 5.5, "csll": 3.5, "cofins": 12.74, "pis": 2.76, "cpp": 41.5, "icms": 34.0 }
+        },
+        {
+          "faixa": 3,
+          "rbt12De": 360000.01,
+          "rbt12Ate": 720000,
+          "aliquotaNominal": 9.5,
+          "parcelaDeduzir": 13860,
+          "reparticao": { "irpj": 5.5, "csll": 3.5, "cofins": 12.74, "pis": 2.76, "cpp": 42.0, "icms": 33.5 }
+        },
+        {
+          "faixa": 4,
+          "rbt12De": 720000.01,
+          "rbt12Ate": 1800000,
+          "aliquotaNominal": 10.7,
+          "parcelaDeduzir": 22500,
+          "reparticao": { "irpj": 5.5, "csll": 3.5, "cofins": 12.74, "pis": 2.76, "cpp": 42.0, "icms": 33.5 }
+        },
+        {
+          "faixa": 5,
+          "rbt12De": 1800000.01,
+          "rbt12Ate": 3600000,
+          "aliquotaNominal": 14.3,
+          "parcelaDeduzir": 87300,
+          "reparticao": { "irpj": 5.5, "csll": 3.5, "cofins": 12.74, "pis": 2.76, "cpp": 42.0, "icms": 33.5 }
+        },
+        {
+          "faixa": 6,
+          "rbt12De": 3600000.01,
+          "rbt12Ate": 4800000,
+          "aliquotaNominal": 19.0,
+          "parcelaDeduzir": 378000,
+          "reparticao": { "irpj": 13.5, "csll": 10.0, "cofins": 28.27, "pis": 6.13, "cpp": 42.1, "icms": 0 },
+          "observacao": "Acima do sublimite o ICMS sai do DAS e passa a ser recolhido pelo regime normal da UF."
+        }
+      ]
+    },
+    {
+      "id": "II",
+      "nome": "Anexo II — Indústria",
+      "atividadesTipicas": ["industrialização", "produção de bens"],
+      "tributoLocal": "icms",
+      "sujeitoFatorR": false,
+      "fundamento": "LC 123/2006, Anexo II",
+      "faixas": [
+        {
+          "faixa": 1,
+          "rbt12De": 0,
+          "rbt12Ate": 180000,
+          "aliquotaNominal": 4.5,
+          "parcelaDeduzir": 0,
+          "reparticao": { "irpj": 5.5, "csll": 3.5, "cofins": 11.51, "pis": 2.49, "cpp": 37.5, "icms": 32.0, "ipi": 7.5 }
+        },
+        {
+          "faixa": 2,
+          "rbt12De": 180000.01,
+          "rbt12Ate": 360000,
+          "aliquotaNominal": 7.8,
+          "parcelaDeduzir": 5940,
+          "reparticao": { "irpj": 5.5, "csll": 3.5, "cofins": 11.51, "pis": 2.49, "cpp": 37.5, "icms": 32.0, "ipi": 7.5 }
+        },
+        {
+          "faixa": 3,
+          "rbt12De": 360000.01,
+          "rbt12Ate": 720000,
+          "aliquotaNominal": 10.0,
+          "parcelaDeduzir": 13860,
+          "reparticao": { "irpj": 5.5, "csll": 3.5, "cofins": 11.51, "pis": 2.49, "cpp": 37.5, "icms": 32.0, "ipi": 7.5 }
+        },
+        {
+          "faixa": 4,
+          "rbt12De": 720000.01,
+          "rbt12Ate": 1800000,
+          "aliquotaNominal": 11.2,
+          "parcelaDeduzir": 22500,
+          "reparticao": { "irpj": 5.5, "csll": 3.5, "cofins": 11.51, "pis": 2.49, "cpp": 37.5, "icms": 32.0, "ipi": 7.5 }
+        },
+        {
+          "faixa": 5,
+          "rbt12De": 1800000.01,
+          "rbt12Ate": 3600000,
+          "aliquotaNominal": 14.7,
+          "parcelaDeduzir": 85500,
+          "reparticao": { "irpj": 5.5, "csll": 3.5, "cofins": 11.51, "pis": 2.49, "cpp": 37.5, "icms": 32.0, "ipi": 7.5 }
+        },
+        {
+          "faixa": 6,
+          "rbt12De": 3600000.01,
+          "rbt12Ate": 4800000,
+          "aliquotaNominal": 30.0,
+          "parcelaDeduzir": 720000,
+          "reparticao": { "irpj": 8.5, "csll": 7.5, "cofins": 20.96, "pis": 4.54, "cpp": 23.5, "icms": 0, "ipi": 35.0 },
+          "observacao": "Acima do sublimite o ICMS sai do DAS."
+        }
+      ]
+    },
+    {
+      "id": "III",
+      "nome": "Anexo III — Serviços em geral",
+      "atividadesTipicas": [
+        "escritórios de contabilidade",
+        "salões de beleza e estética",
+        "academias (quando Fator R ≥ 28%)",
+        "manutenção e reparo",
+        "agências de viagem"
+      ],
+      "tributoLocal": "iss",
+      "sujeitoFatorR": true,
+      "papelNoFatorR": "destino quando Fator R ≥ 28%",
+      "fundamento": "LC 123/2006, Anexo III e art. 18, §§ 5º-B e 5º-M",
+      "faixas": [
+        {
+          "faixa": 1,
+          "rbt12De": 0,
+          "rbt12Ate": 180000,
+          "aliquotaNominal": 6.0,
+          "parcelaDeduzir": 0,
+          "reparticao": { "irpj": 4.0, "csll": 3.5, "cofins": 12.82, "pis": 2.78, "cpp": 43.4, "iss": 33.5 }
+        },
+        {
+          "faixa": 2,
+          "rbt12De": 180000.01,
+          "rbt12Ate": 360000,
+          "aliquotaNominal": 11.2,
+          "parcelaDeduzir": 9360,
+          "reparticao": { "irpj": 4.0, "csll": 3.5, "cofins": 14.05, "pis": 3.05, "cpp": 43.4, "iss": 32.0 }
+        },
+        {
+          "faixa": 3,
+          "rbt12De": 360000.01,
+          "rbt12Ate": 720000,
+          "aliquotaNominal": 13.5,
+          "parcelaDeduzir": 17640,
+          "reparticao": { "irpj": 4.0, "csll": 3.5, "cofins": 13.64, "pis": 2.96, "cpp": 43.4, "iss": 32.5 }
+        },
+        {
+          "faixa": 4,
+          "rbt12De": 720000.01,
+          "rbt12Ate": 1800000,
+          "aliquotaNominal": 16.0,
+          "parcelaDeduzir": 35640,
+          "reparticao": { "irpj": 4.0, "csll": 3.5, "cofins": 13.64, "pis": 2.96, "cpp": 43.4, "iss": 32.5 }
+        },
+        {
+          "faixa": 5,
+          "rbt12De": 1800000.01,
+          "rbt12Ate": 3600000,
+          "aliquotaNominal": 21.0,
+          "parcelaDeduzir": 125640,
+          "reparticao": { "irpj": 4.0, "csll": 3.5, "cofins": 12.82, "pis": 2.78, "cpp": 43.4, "iss": 33.5 },
+          "tetoIss5": true,
+          "observacao": "Nesta faixa a parcela de ISS pode estourar 5% da receita; nesse caso aplica-se o teto e o excedente é redistribuído entre os demais tributos."
+        },
+        {
+          "faixa": 6,
+          "rbt12De": 3600000.01,
+          "rbt12Ate": 4800000,
+          "aliquotaNominal": 33.0,
+          "parcelaDeduzir": 648000,
+          "reparticao": { "irpj": 35.0, "csll": 15.0, "cofins": 16.03, "pis": 3.47, "cpp": 30.5, "iss": 0 },
+          "observacao": "Acima do sublimite o ISS sai do DAS."
+        }
+      ]
+    },
+    {
+      "id": "IV",
+      "nome": "Anexo IV — Serviços com CPP fora do DAS",
+      "atividadesTipicas": [
+        "construção de imóveis e obras de engenharia",
+        "advocacia",
+        "serviços de vigilância, limpeza e conservação"
+      ],
+      "tributoLocal": "iss",
+      "sujeitoFatorR": false,
+      "cppNoDas": false,
+      "fundamento": "LC 123/2006, Anexo IV e art. 18, § 5º-C",
+      "observacao": "A CPP não está no DAS: a contribuição patronal é recolhida à parte, pela folha.",
+      "faixas": [
+        {
+          "faixa": 1,
+          "rbt12De": 0,
+          "rbt12Ate": 180000,
+          "aliquotaNominal": 4.5,
+          "parcelaDeduzir": 0,
+          "reparticao": { "irpj": 18.8, "csll": 15.2, "cofins": 17.67, "pis": 3.83, "cpp": 0, "iss": 44.5 }
+        },
+        {
+          "faixa": 2,
+          "rbt12De": 180000.01,
+          "rbt12Ate": 360000,
+          "aliquotaNominal": 9.0,
+          "parcelaDeduzir": 8100,
+          "reparticao": { "irpj": 19.8, "csll": 15.2, "cofins": 20.55, "pis": 4.45, "cpp": 0, "iss": 40.0 }
+        },
+        {
+          "faixa": 3,
+          "rbt12De": 360000.01,
+          "rbt12Ate": 720000,
+          "aliquotaNominal": 10.2,
+          "parcelaDeduzir": 12420,
+          "reparticao": { "irpj": 20.8, "csll": 15.2, "cofins": 19.73, "pis": 4.27, "cpp": 0, "iss": 40.0 }
+        },
+        {
+          "faixa": 4,
+          "rbt12De": 720000.01,
+          "rbt12Ate": 1800000,
+          "aliquotaNominal": 14.0,
+          "parcelaDeduzir": 39780,
+          "reparticao": { "irpj": 17.8, "csll": 19.2, "cofins": 18.9, "pis": 4.1, "cpp": 0, "iss": 40.0 }
+        },
+        {
+          "faixa": 5,
+          "rbt12De": 1800000.01,
+          "rbt12Ate": 3600000,
+          "aliquotaNominal": 22.0,
+          "parcelaDeduzir": 183780,
+          "reparticao": { "irpj": 18.8, "csll": 19.2, "cofins": 18.08, "pis": 3.92, "cpp": 0, "iss": 40.0 },
+          "tetoIss5": true
+        },
+        {
+          "faixa": 6,
+          "rbt12De": 3600000.01,
+          "rbt12Ate": 4800000,
+          "aliquotaNominal": 33.0,
+          "parcelaDeduzir": 828000,
+          "reparticao": { "irpj": 53.5, "csll": 21.5, "cofins": 20.55, "pis": 4.45, "cpp": 0, "iss": 0 },
+          "observacao": "Acima do sublimite o ISS sai do DAS."
+        }
+      ]
+    },
+    {
+      "id": "V",
+      "nome": "Anexo V — Serviços sujeitos ao Fator R",
+      "atividadesTipicas": [
+        "engenharia e arquitetura",
+        "publicidade e propaganda",
+        "medicina e odontologia (quando Fator R < 28%)",
+        "consultoria e tecnologia da informação",
+        "academias (quando Fator R < 28%)"
+      ],
+      "tributoLocal": "iss",
+      "sujeitoFatorR": true,
+      "papelNoFatorR": "origem — migra para o Anexo III quando Fator R ≥ 28%",
+      "fundamento": "LC 123/2006, Anexo V e art. 18, § 5º-M",
+      "faixas": [
+        {
+          "faixa": 1,
+          "rbt12De": 0,
+          "rbt12Ate": 180000,
+          "aliquotaNominal": 15.5,
+          "parcelaDeduzir": 0,
+          "reparticao": { "irpj": 25.0, "csll": 15.0, "cofins": 14.1, "pis": 3.05, "cpp": 28.85, "iss": 14.0 }
+        },
+        {
+          "faixa": 2,
+          "rbt12De": 180000.01,
+          "rbt12Ate": 360000,
+          "aliquotaNominal": 18.0,
+          "parcelaDeduzir": 4500,
+          "reparticao": { "irpj": 23.0, "csll": 15.0, "cofins": 14.1, "pis": 3.05, "cpp": 27.85, "iss": 17.0 }
+        },
+        {
+          "faixa": 3,
+          "rbt12De": 360000.01,
+          "rbt12Ate": 720000,
+          "aliquotaNominal": 19.5,
+          "parcelaDeduzir": 9900,
+          "reparticao": { "irpj": 24.0, "csll": 15.0, "cofins": 14.92, "pis": 3.23, "cpp": 23.85, "iss": 19.0 }
+        },
+        {
+          "faixa": 4,
+          "rbt12De": 720000.01,
+          "rbt12Ate": 1800000,
+          "aliquotaNominal": 20.5,
+          "parcelaDeduzir": 17100,
+          "reparticao": { "irpj": 21.0, "csll": 15.0, "cofins": 15.74, "pis": 3.41, "cpp": 23.85, "iss": 21.0 }
+        },
+        {
+          "faixa": 5,
+          "rbt12De": 1800000.01,
+          "rbt12Ate": 3600000,
+          "aliquotaNominal": 23.0,
+          "parcelaDeduzir": 62100,
+          "reparticao": { "irpj": 23.0, "csll": 12.5, "cofins": 14.1, "pis": 3.05, "cpp": 23.85, "iss": 23.5 }
+        },
+        {
+          "faixa": 6,
+          "rbt12De": 3600000.01,
+          "rbt12Ate": 4800000,
+          "aliquotaNominal": 30.5,
+          "parcelaDeduzir": 540000,
+          "reparticao": { "irpj": 35.0, "csll": 15.5, "cofins": 16.44, "pis": 3.56, "cpp": 29.5, "iss": 0 },
+          "observacao": "Acima do sublimite o ISS sai do DAS."
+        }
+      ]
+    }
+  ]
+}

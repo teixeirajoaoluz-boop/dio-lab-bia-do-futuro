@@ -1,0 +1,27 @@
+{
+  "fonte": "backend/base_sql/34a_regras_negocio_projecoes_aquisicoes.sql (tabela PROJETOBEF.regras_negocio_projecoes_aquisicoes)",
+  "descricao": "Regras de negócio para decidir a alíquota/percentual de IBS e CBS aplicado a cada aquisição (compra de fornecedor) na tabela de projeções projecoes_acquisitions (origem fiscal).",
+  "regras": [
+    {
+      "regra_numero": 1,
+      "condicao": "optanteSimplesNacional_suppl = SIM (fornecedor é optante do Simples Nacional)",
+      "acao": "O percentual de IBS/CBS aplicado à aquisição vem das alíquotas específicas do Simples Nacional do fornecedor, e não da alíquota padrão de transição do ano.",
+      "tabela_origem": "suppliers, aliquota_sn_ibs_cbs",
+      "coluna_origem": "cbs_2027_2028, ibs_2027_2028, cbs_2029, ibs_2029, ... (uma coluna por ano/faixa, por anexo do Simples Nacional)"
+    },
+    {
+      "regra_numero": 2,
+      "condicao": "optanteSimplesNacional_suppl = NAO e o produto/serviço da aquisição é encontrado cadastrado em products",
+      "acao": "Usar a alíquota aplicada padrão do ano (ibs_apl/cbs_apl de aliquotas_transicao), mas descontando a redução específica cadastrada para aquele produto (reducao_ibs, reducao_cbs).",
+      "tabela_origem": "products, aliquotas_transicao",
+      "coluna_origem": "reducao_ibs, reducao_cbs, ibs_aplicada, cbs_aplicada"
+    },
+    {
+      "regra_numero": 3,
+      "condicao": "optanteSimplesNacional_suppl = NAO e o produto/serviço da aquisição NÃO é encontrado em products",
+      "acao": "Usar o padrão de referência do ano: ibs_apl e cbs_apl de aliquotas_transicao, aplicando redução 0 (sem benefício/redução específica).",
+      "tabela_origem": "aliquotas_transicao",
+      "coluna_origem": "ibs_aplicada, cbs_aplicada"
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "versao": "1.0.0",
+  "atualizadoEm": "2026-08-10",
+  "descricao": "Catálogo de obrigações acessórias e dos registros onde cada informação é buscada. Usado para explicar ao usuário de onde veio cada número do cruzamento.",
+  "obrigacoes": [
+    {
+      "id": "DFE",
+      "nome": "Documentos Fiscais Eletrônicos",
+      "sigla": "DF-e",
+      "natureza": "documento",
+      "posicaoNoFluxo": 1,
+      "modelos": ["NF-e", "NFC-e", "CF-e", "NFS-e", "CT-e", "CT-e OS", "BP-e"],
+      "registros": [
+        { "codigo": "XML", "descricao": "Arquivo XML do documento fiscal", "informacao": "Valor da operação, CFOP, NCM, tributos destacados, meios de pagamento" }
+      ]
+    },
+    {
+      "id": "EFD_ICMS_IPI",
+      "nome": "EFD ICMS/IPI (SPED Fiscal)",
+      "sigla": "SPED Fiscal",
+      "natureza": "escrituracao_fiscal",
+      "posicaoNoFluxo": 2,
+      "registros": [
+        { "codigo": "C100", "descricao": "Nota fiscal — cabeçalho", "informacao": "Documento de entrada e de saída" },
+        { "codigo": "C170", "descricao": "Itens do documento", "informacao": "Aquisições (entradas) por item e CFOP" },
+        { "codigo": "C190", "descricao": "Registro analítico do documento", "informacao": "Receita (saídas) consolidada por CST/CFOP/alíquota" },
+        { "codigo": "D100", "descricao": "Conhecimento de transporte — cabeçalho", "informacao": "Serviço de transporte" },
+        { "codigo": "D170", "descricao": "Itens do CT-e", "informacao": "Aquisição de serviço de transporte" },
+        { "codigo": "D190", "descricao": "Analítico do CT-e", "informacao": "Receita de serviço de transporte" },
+        { "codigo": "E110", "descricao": "Apuração do ICMS", "informacao": "ICMS a recolher" },
+        { "codigo": "E250", "descricao": "Obrigações do ICMS-ST", "informacao": "ICMS-ST a recolher" },
+        { "codigo": "Bloco G", "descricao": "CIAP", "informacao": "Crédito de ICMS do imobilizado em 1/48" },
+        { "codigo": "Bloco H", "descricao": "Inventário", "informacao": "Estoque final" }
+      ]
+    },
+    {
+      "id": "EFD_CONTRIBUICOES",
+      "nome": "EFD Contribuições",
+      "sigla": "EFD Contrib.",
+      "natureza": "escrituracao_fiscal",
+      "posicaoNoFluxo": 2,
+      "registros": [
+        { "codigo": "A100", "descricao": "NFS-e — serviços", "informacao": "Receita de serviços" },
+        { "codigo": "A170", "descricao": "Itens de serviço", "informacao": "Serviços tomados" },
+        { "codigo": "C100", "descricao": "Documentos de mercadoria", "informacao": "Receita de mercadorias e bases de crédito" },
+        { "codigo": "M200", "descricao": "Consolidação do PIS", "informacao": "PIS a recolher" },
+        { "codigo": "M210", "descricao": "Detalhamento do PIS", "informacao": "Base e alíquota do PIS" },
+        { "codigo": "M600", "descricao": "Consolidação da COFINS", "informacao": "COFINS a recolher" },
+        { "codigo": "M610", "descricao": "Detalhamento da COFINS", "informacao": "Base e alíquota da COFINS" }
+      ]
+    },
+    {
+      "id": "PGDAS_D",
+      "nome": "PGDAS-D — Extrato do Simples Nacional",
+      "sigla": "PGDAS-D",
+      "natureza": "declaracao",
+      "posicaoNoFluxo": 2,
+      "registros": [
+        { "codigo": "RPA", "descricao": "Receita bruta do período de apuração", "informacao": "Receita declarada do mês (mercado interno e externo)" },
+        { "codigo": "RBT12", "descricao": "Receita bruta dos 12 meses anteriores", "informacao": "Base para faixa e alíquota efetiva" },
+        { "codigo": "ANEXO", "descricao": "Anexo de tributação", "informacao": "Anexo I a V da LC 123/2006" },
+        { "codigo": "FATOR_R", "descricao": "Fator R", "informacao": "Define enquadramento entre Anexo III e V" },
+        { "codigo": "DAS", "descricao": "Documento de arrecadação", "informacao": "Tributo apurado e repartição por tributo" }
+      ]
+    },
+    {
+      "id": "DEFIS",
+      "nome": "DEFIS — Declaração de Informações Socioeconômicas e Fiscais",
+      "sigla": "DEFIS",
+      "natureza": "declaracao",
+      "posicaoNoFluxo": 2,
+      "registros": [
+        { "codigo": "RECEITA_ANUAL", "descricao": "Receita bruta do ano-calendário", "informacao": "Receita anual declarada pelo optante do Simples" },
+        { "codigo": "LUCRO_DISTRIBUIDO", "descricao": "Lucro distribuído aos sócios", "informacao": "Base para confronto com DIRPF dos sócios" }
+      ]
+    },
+    {
+      "id": "ECD",
+      "nome": "ECD — SPED Contábil",
+      "sigla": "ECD",
+      "natureza": "escrituracao_contabil",
+      "posicaoNoFluxo": 3,
+      "registros": [
+        { "codigo": "I155", "descricao": "Saldo periódico das contas", "informacao": "Saldos contábeis" },
+        { "codigo": "I355", "descricao": "Saldo das contas de resultado", "informacao": "Receitas e despesas antes do encerramento" },
+        { "codigo": "J100", "descricao": "Balanço patrimonial", "informacao": "Tributos a recolher, imobilizado, capital social" },
+        { "codigo": "J150", "descricao": "Demonstração do resultado", "informacao": "Receita bruta (03.1.1), custos e despesas (04.*)" }
+      ],
+      "planoReferencial": {
+        "03.1.1": "Receita bruta de vendas e serviços",
+        "03.1.2.01": "Devoluções de vendas",
+        "04": "Custos e despesas operacionais"
+      }
+    },
+    {
+      "id": "ECF",
+      "nome": "ECF — Escrituração Contábil Fiscal",
+      "sigla": "ECF",
+      "natureza": "declaracao",
+      "posicaoNoFluxo": 3,
+      "registros": [
+        { "codigo": "L300", "descricao": "Demonstração do resultado", "informacao": "Receita bruta e resultado" },
+        { "codigo": "N630", "descricao": "IRPJ a pagar", "informacao": "IRPJ apurado" },
+        { "codigo": "N670", "descricao": "CSLL a pagar", "informacao": "CSLL apurada" }
+      ]
+    },
+    {
+      "id": "DCTF",
+      "nome": "DCTF / DCTFWeb",
+      "sigla": "DCTF",
+      "natureza": "declaracao",
+      "posicaoNoFluxo": 2,
+      "registros": [
+        { "codigo": "DEBITO", "descricao": "Débito confessado", "informacao": "IPI, PIS, COFINS, IRPJ, CSLL" }
+      ]
+    },
+    {
+      "id": "EFD_REINF",
+      "nome": "EFD-Reinf",
+      "sigla": "Reinf",
+      "natureza": "declaracao",
+      "posicaoNoFluxo": 2,
+      "registros": [
+        { "codigo": "R-4010", "descricao": "Pagamentos a pessoa física", "informacao": "Retenções e distribuição de lucros" },
+        { "codigo": "R-4020", "descricao": "Pagamentos a pessoa jurídica", "informacao": "Retenções" }
+      ]
+    },
+    {
+      "id": "ESOCIAL",
+      "nome": "eSocial",
+      "sigla": "eSocial",
+      "natureza": "declaracao",
+      "posicaoNoFluxo": 2,
+      "registros": [
+        { "codigo": "S-1200", "descricao": "Remuneração do trabalhador", "informacao": "Folha de pagamento" }
+      ]
+    },
+    {
+      "id": "DIRPF",
+      "nome": "Declaração de Imposto de Renda da Pessoa Física dos sócios",
+      "sigla": "DIRPF",
+      "natureza": "declaracao",
+      "posicaoNoFluxo": 4,
+      "registros": [
+        { "codigo": "RENDIMENTOS_ISENTOS", "descricao": "Lucros e dividendos recebidos", "informacao": "Confronto com distribuição de lucros da PJ" },
+        { "codigo": "PARTICIPACOES", "descricao": "Participações societárias", "informacao": "Confronto com capital social" }
+      ]
+    },
+    {
+      "id": "ATO_CONSTITUTIVO",
+      "nome": "Ato constitutivo / Contrato social",
+      "sigla": "Contrato social",
+      "natureza": "documento",
+      "posicaoNoFluxo": 4,
+      "registros": [
+        { "codigo": "CAPITAL_SOCIAL", "descricao": "Capital social integralizado", "informacao": "Confronto com patrimônio líquido contábil" }
+      ]
+    },
+    {
+      "id": "TERCEIROS",
+      "nome": "Informações de terceiros",
+      "sigla": "Terceiros",
+      "natureza": "externa",
+      "posicaoNoFluxo": 4,
+      "registros": [
+        { "codigo": "E_FINANCEIRA", "descricao": "e-Financeira", "informacao": "Movimentação financeira informada por instituições" },
+        { "codigo": "CARTOES", "descricao": "Administradoras de cartão", "informacao": "Vendas por cartão e PIX" }
+      ]
+    }
+  ],
+  "fluxoCanonico": [
+    { "etapa": 1, "camada": "Documento fiscal eletrônico", "obrigacoes": ["DFE"] },
+    { "etapa": 2, "camada": "Escrituração fiscal e declarações", "obrigacoes": ["EFD_ICMS_IPI", "EFD_CONTRIBUICOES", "PGDAS_D", "DCTF", "EFD_REINF", "ESOCIAL"] },
+    { "etapa": 3, "camada": "Contabilidade", "obrigacoes": ["ECD", "ECF"] },
+    { "etapa": 4, "camada": "Confirmação externa", "obrigacoes": ["TERCEIROS"] }
+  ]
+}

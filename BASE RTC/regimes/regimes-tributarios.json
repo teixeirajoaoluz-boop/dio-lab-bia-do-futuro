@@ -1,0 +1,165 @@
+{
+  "versao": "1.0.0",
+  "atualizadoEm": "2026-08-10",
+  "descricao": "Exigibilidade de obrigações acessórias por regime tributário. Define quais cruzamentos são exigíveis e quais são 'não aplicáveis'. Uma ponta não obrigatória NUNCA gera reprovação.",
+  "niveisExigibilidade": {
+    "obrigatoria": "Ausência é pendência crítica — bloqueia o veredito.",
+    "condicional": "Obrigatória apenas se a condição descrita ocorrer — ausência é atenção, não crítico.",
+    "dispensada": "Não exigível para o regime — ausência é informativa e não afeta o veredito.",
+    "conforme_uf": "Depende da legislação estadual do domicílio fiscal — tratar como condicional."
+  },
+  "aliasesRegime": {
+    "simples_nacional": ["Simples Nacional", "SIMPLES", "Simples", "SN", "MEI", "Simples Nacional - MEI"],
+    "lucro_presumido": ["Lucro Presumido", "PRESUMIDO", "LP"],
+    "lucro_real": ["Lucro Real", "REAL", "LR"],
+    "nao_informado": ["", "Não informado", "Nao informado", null]
+  },
+  "regimes": [
+    {
+      "id": "simples_nacional",
+      "nome": "Simples Nacional",
+      "declaracaoDeReceitaPrincipal": "PGDAS_D",
+      "obrigacoes": {
+        "PGDAS_D": {
+          "exigibilidade": "obrigatoria",
+          "periodicidade": "mensal",
+          "fundamento": "LC 123/2006, art. 25 — declaração mensal única do Simples Nacional.",
+          "observacao": "É a fonte canônica de receita bruta declarada do optante."
+        },
+        "DEFIS": {
+          "exigibilidade": "obrigatoria",
+          "periodicidade": "anual",
+          "fundamento": "Resolução CGSN 140/2018 — declaração de informações socioeconômicas e fiscais."
+        },
+        "ECD": {
+          "exigibilidade": "dispensada",
+          "fundamento": "LC 123/2006, art. 27 — ME/EPP optante pode adotar contabilidade simplificada; IN RFB 2003/2021 não relaciona o optante entre os obrigados à ECD.",
+          "condicaoParaObrigatoriedade": "Passa a ser recomendada quando a empresa distribui lucros acima do limite de isenção presumido e pretende comprovar lucro contábil, ou por opção do contribuinte.",
+          "efeitoNaConferencia": "A ausência de ECD NÃO reprova a base. O cruzamento de receita migra para PGDAS-D."
+        },
+        "ECF": {
+          "exigibilidade": "dispensada",
+          "fundamento": "IN RFB 2004/2021 — optantes do Simples Nacional estão dispensados da ECF."
+        },
+        "EFD_CONTRIBUICOES": {
+          "exigibilidade": "dispensada",
+          "fundamento": "IN RFB 1252/2012, art. 5º — optantes do Simples Nacional estão dispensados, pois PIS/COFINS são recolhidos no DAS."
+        },
+        "EFD_ICMS_IPI": {
+          "exigibilidade": "conforme_uf",
+          "fundamento": "Ajuste SINIEF 2/2009 — a maioria das UF dispensa o optante; algumas exigem para operações específicas ou por porte.",
+          "efeitoNaConferencia": "Quando houver arquivo importado, o cruzamento é executado; quando não houver, tratar como 'não aplicável' e usar XML como fonte fiscal."
+        },
+        "DCTF": {
+          "exigibilidade": "dispensada",
+          "fundamento": "Optante do Simples Nacional é dispensado da DCTF, salvo situações específicas de tributos fora do DAS."
+        },
+        "DFE": {
+          "exigibilidade": "obrigatoria",
+          "periodicidade": "por operação",
+          "fundamento": "Emissão de documento fiscal eletrônico independe do regime."
+        }
+      },
+      "cruzamentosExigiveis": [
+        "receita_fiscal_x_pgdas",
+        "receita_xml_x_sped",
+        "documentos_entrada_xml_x_sped",
+        "documentos_saida_xml_x_sped",
+        "cobertura_meses",
+        "das_x_receita_declarada"
+      ],
+      "cruzamentosNaoAplicaveis": [
+        "receita_fiscal_x_ecd",
+        "aquisicoes_x_custos_ecd"
+      ],
+      "regrasVeredito": [
+        {
+          "id": "sn_sem_ecd_nao_reprova",
+          "descricao": "Falta de ECD em optante do Simples Nacional é informativa.",
+          "rebaixarPara": "informativo",
+          "aplicaEm": ["ecd_disponivel", "doc-ecd", "ind-ecd", "receita_fiscal_conta", "receita_bruta_total", "aquisicao_fiscal_conta", "aquisicao_custos_total", "custos_ecd"]
+        },
+        {
+          "id": "sn_exige_pgdas",
+          "descricao": "Sem PGDAS-D importado, o optante fica sem fonte de receita declarada para cruzar.",
+          "elevarPara": "critico",
+          "aplicaEm": ["pgdas_disponivel"]
+        },
+        {
+          "id": "sn_cfop_saida_em_aquisicao",
+          "descricao": "CFOP de saída (5/6/7) classificado como aquisição em optante indica erro de parametrização.",
+          "manterComo": "atencao",
+          "aplicaEm": ["dorna_regime_tributario"]
+        }
+      ]
+    },
+    {
+      "id": "lucro_presumido",
+      "nome": "Lucro Presumido",
+      "declaracaoDeReceitaPrincipal": "ECD",
+      "obrigacoes": {
+        "ECD": {
+          "exigibilidade": "obrigatoria",
+          "periodicidade": "anual",
+          "fundamento": "IN RFB 2003/2021 — obrigada a PJ tributada pelo Lucro Presumido que não se enquadre em dispensa; na prática exigida para lastrear distribuição de lucros acima da presunção."
+        },
+        "ECF": { "exigibilidade": "obrigatoria", "periodicidade": "anual", "fundamento": "IN RFB 2004/2021." },
+        "EFD_CONTRIBUICOES": { "exigibilidade": "obrigatoria", "periodicidade": "mensal", "fundamento": "IN RFB 1252/2012 — regime cumulativo." },
+        "EFD_ICMS_IPI": { "exigibilidade": "obrigatoria", "periodicidade": "mensal", "fundamento": "Ajuste SINIEF 2/2009, conforme legislação da UF." },
+        "DCTF": { "exigibilidade": "obrigatoria", "periodicidade": "mensal" },
+        "DFE": { "exigibilidade": "obrigatoria", "periodicidade": "por operação" },
+        "PGDAS_D": { "exigibilidade": "dispensada", "fundamento": "Exclusivo de optantes do Simples Nacional." }
+      },
+      "cruzamentosExigiveis": [
+        "receita_fiscal_x_ecd",
+        "receita_xml_x_sped",
+        "documentos_entrada_xml_x_sped",
+        "documentos_saida_xml_x_sped",
+        "cobertura_meses",
+        "aquisicoes_x_custos_ecd"
+      ],
+      "cruzamentosNaoAplicaveis": ["receita_fiscal_x_pgdas", "das_x_receita_declarada"],
+      "regrasVeredito": []
+    },
+    {
+      "id": "lucro_real",
+      "nome": "Lucro Real",
+      "declaracaoDeReceitaPrincipal": "ECD",
+      "obrigacoes": {
+        "ECD": { "exigibilidade": "obrigatoria", "periodicidade": "anual", "fundamento": "IN RFB 2003/2021 — PJ tributada pelo Lucro Real." },
+        "ECF": { "exigibilidade": "obrigatoria", "periodicidade": "anual", "fundamento": "IN RFB 2004/2021." },
+        "EFD_CONTRIBUICOES": { "exigibilidade": "obrigatoria", "periodicidade": "mensal", "fundamento": "IN RFB 1252/2012 — regime não cumulativo." },
+        "EFD_ICMS_IPI": { "exigibilidade": "obrigatoria", "periodicidade": "mensal" },
+        "DCTF": { "exigibilidade": "obrigatoria", "periodicidade": "mensal" },
+        "DFE": { "exigibilidade": "obrigatoria", "periodicidade": "por operação" },
+        "PGDAS_D": { "exigibilidade": "dispensada" }
+      },
+      "cruzamentosExigiveis": [
+        "receita_fiscal_x_ecd",
+        "receita_xml_x_sped",
+        "documentos_entrada_xml_x_sped",
+        "documentos_saida_xml_x_sped",
+        "cobertura_meses",
+        "aquisicoes_x_custos_ecd"
+      ],
+      "cruzamentosNaoAplicaveis": ["receita_fiscal_x_pgdas", "das_x_receita_declarada"],
+      "regrasVeredito": []
+    },
+    {
+      "id": "nao_informado",
+      "nome": "Regime não informado",
+      "declaracaoDeReceitaPrincipal": null,
+      "obrigacoes": {},
+      "cruzamentosExigiveis": ["receita_xml_x_sped", "cobertura_meses"],
+      "cruzamentosNaoAplicaveis": [],
+      "regrasVeredito": [
+        {
+          "id": "regime_ausente",
+          "descricao": "Sem regime cadastrado não é possível definir exigibilidade — solicitar cadastro antes de reprovar.",
+          "rebaixarPara": "atencao",
+          "aplicaEm": ["ecd_disponivel", "doc-ecd"]
+        }
+      ]
+    }
+  ]
+}

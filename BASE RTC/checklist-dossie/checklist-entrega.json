@@ -1,0 +1,36 @@
+{
+  "_fonte": "mcp_planejamento_rtc/checklist.py — checklist_entrega(pasta_cliente)",
+  "_referencia_citada_no_codigo": "MODELO_DE_ENTREGA.md §6 (não lido nesta tarefa)",
+  "itens": [
+    {
+      "item": "premissas.json presente",
+      "obrigatorio": true,
+      "criterio_aceite": "Arquivo existe em 00_ENTRADA/premissas.json",
+      "se_ausente": "Item falha imediatamente; demais itens de artefato ficam sem avaliar (lista vazia) por falta de dados normalizados"
+    },
+    {
+      "item": "premissas.json válido",
+      "obrigatorio": true,
+      "criterio_aceite": "Carregado com validar_tambem=True e a lista de problemas (_validacao) retorna vazia",
+      "se_ausente": "Item reprova e lista os problemas de validação encontrados (regra de validação está no módulo `premissas`, não analisado aqui)"
+    },
+    {
+      "item": "artefato numerado presente (repetido para cada artefato do perfil)",
+      "obrigatorio": true,
+      "quantidade": "6 itens no perfil padrão/exportadora, 2 itens no perfil farma",
+      "criterio_aceite": "Existe no disco um arquivo que bate com o padrão '{numero}_*{tema}.{extensao}' dentro da pasta do cliente",
+      "se_ausente": "Item marcado como 'ausente'"
+    },
+    {
+      "item": "99_ENTREGA presente",
+      "obrigatorio": true,
+      "criterio_aceite": "Subpasta 99_ENTREGA existe dentro da pasta do cliente",
+      "se_ausente": "Item reprova (sem detalhe adicional no código)"
+    }
+  ],
+  "resultado": {
+    "campos": ["pasta", "pronto", "score", "itens"],
+    "pronto": "true somente se todos os itens estiverem ok",
+    "score": "formato 'N/M' — N itens ok de M itens totais"
+  }
+}

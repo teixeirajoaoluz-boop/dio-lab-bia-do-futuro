@@ -1,0 +1,247 @@
+{
+  "versao": "1.0.0",
+  "atualizadoEm": "2026-08-10",
+  "doutrina": "As informações nascem nos documentos fiscais eletrônicos (DF-e), transitam pelas escriturações fiscais e deságuam na contabilidade.",
+  "principios": [
+    "A validação de layout feita por PVA/PGE não substitui validação qualitativa de conteúdo.",
+    "Ausência de escrituração de documento é a causa-raiz mais comum de divergência nos demais indicadores.",
+    "Um cruzamento só é exigível quando as duas pontas são obrigatórias para o regime tributário da empresa.",
+    "Quando uma ponta não é obrigatória, o resultado é 'não aplicável' — nunca reprovação."
+  ],
+  "niveisPrioridade": {
+    "obrigatorio_mensal": "Confronto que não pode ser omitido em nenhuma competência.",
+    "recomendado": "Confronto relevante; executar quando as fontes estiverem disponíveis.",
+    "roadmap": "Indicador catalogado, sem fonte de dados disponível na plataforma."
+  },
+  "situacoes": {
+    "ok": "Pontas conciliadas dentro da tolerância.",
+    "atencao": "Divergência dentro de faixa explicável ou cobertura parcial.",
+    "critico": "Divergência acima da tolerância entre pontas ambas obrigatórias.",
+    "nao_aplicavel": "Alguma ponta não é obrigatória para o regime — sem veredito.",
+    "sem_dados": "Ponta obrigatória sem importação — pendência de input, não divergência."
+  },
+  "indicadores": [
+    {
+      "id": "receita_bruta",
+      "nome": "Receita bruta",
+      "prioridade": "obrigatorio_mensal",
+      "periodicidade": "mensal",
+      "descricao": "Receita de vendas de mercadorias e de serviços deve ser idêntica em documento fiscal, escrituração fiscal, declaração do regime e contabilidade.",
+      "implementado": true,
+      "pontas": [
+        { "fonte": "DFE", "referencia": "XML NF-e / NFC-e / CF-e / NFS-e / CT-e" },
+        { "fonte": "EFD_ICMS_IPI", "referencia": "C190 / D190" },
+        { "fonte": "EFD_CONTRIBUICOES", "referencia": "C100 + A100" },
+        { "fonte": "PGDAS_D", "referencia": "Receita bruta do PA (mercado interno + externo)" },
+        { "fonte": "ECD", "referencia": "J150 — contas 03.1.1" },
+        { "fonte": "ECF", "referencia": "L300" }
+      ],
+      "cruzamentos": [
+        {
+          "id": "receita_fiscal_x_ecd",
+          "rotulo": "Receita fiscal × ECD (03.1.1)",
+          "de": "EFD_ICMS_IPI",
+          "para": "ECD",
+          "toleranciaPct": 15,
+          "exigeAmbasObrigatorias": true
+        },
+        {
+          "id": "receita_fiscal_x_pgdas",
+          "rotulo": "Receita fiscal importada × PGDAS-D",
+          "de": "DFE",
+          "deAlternativas": ["EFD_ICMS_IPI", "DFE"],
+          "para": "PGDAS_D",
+          "toleranciaPct": 5,
+          "exigeAmbasObrigatorias": true,
+          "observacao": "Cruzamento substituto da ECD para optantes do Simples Nacional. A ponta fiscal é a receita consolidada importada, vinda de SPED Fiscal quando existir ou de XML quando o optante for dispensado da EFD ICMS/IPI."
+        },
+        {
+          "id": "receita_xml_x_sped",
+          "rotulo": "Receita XML × SPED Fiscal (saídas)",
+          "de": "DFE",
+          "para": "EFD_ICMS_IPI",
+          "toleranciaPct": 2,
+          "exigeAmbasObrigatorias": false,
+          "observacao": "Quando a EFD ICMS/IPI não é obrigatória para o regime e não há arquivo importado, o resultado é 'não aplicável' — nunca divergência."
+        }
+      ]
+    },
+    {
+      "id": "escrituracao_documentos",
+      "nome": "Escrituração de documentos",
+      "prioridade": "obrigatorio_mensal",
+      "periodicidade": "mensal",
+      "descricao": "Todo documento fiscal de entrada e de saída, de mercadoria e de serviço, deve estar escriturado. Documento com XML e sem escrituração — ou escriturado sem XML — é indício de problema em ambas as direções.",
+      "implementado": true,
+      "pontas": [
+        { "fonte": "DFE", "referencia": "XML de entradas, saídas, serviços prestados e tomados" },
+        { "fonte": "EFD_ICMS_IPI", "referencia": "Blocos C e D" },
+        { "fonte": "EFD_CONTRIBUICOES", "referencia": "Blocos A, C e D" }
+      ],
+      "cruzamentos": [
+        {
+          "id": "documentos_entrada_xml_x_sped",
+          "rotulo": "Entradas: XML × SPED Fiscal",
+          "de": "DFE",
+          "para": "EFD_ICMS_IPI",
+          "toleranciaPct": 2,
+          "exigeAmbasObrigatorias": false,
+          "verificar": ["documento_sem_escrituracao", "escrituracao_sem_documento", "divergencia_de_valor"]
+        },
+        {
+          "id": "documentos_saida_xml_x_sped",
+          "rotulo": "Saídas: XML × SPED Fiscal",
+          "de": "DFE",
+          "para": "EFD_ICMS_IPI",
+          "toleranciaPct": 2,
+          "exigeAmbasObrigatorias": false,
+          "verificar": ["documento_sem_escrituracao", "escrituracao_sem_documento", "divergencia_de_valor"]
+        },
+        {
+          "id": "cobertura_meses",
+          "rotulo": "Cobertura de competências no ano-base",
+          "de": "EFD_ICMS_IPI",
+          "para": "EFD_ICMS_IPI",
+          "mesesEsperados": 12,
+          "exigeAmbasObrigatorias": false
+        }
+      ]
+    },
+    {
+      "id": "tributos_recolher",
+      "nome": "Tributos a recolher",
+      "prioridade": "obrigatorio_mensal",
+      "periodicidade": "mensal",
+      "descricao": "Tributo destacado no documento fiscal deve ser o mesmo apurado na escrituração, confessado na declaração e registrado na contabilidade.",
+      "implementado": false,
+      "pontas": [
+        { "fonte": "DFE", "referencia": "ICMS, IPI, PIS, COFINS, ISS destacados" },
+        { "fonte": "EFD_ICMS_IPI", "referencia": "E110 (ICMS), E250 (ICMS-ST), bloco E (IPI)" },
+        { "fonte": "EFD_CONTRIBUICOES", "referencia": "M200/M210 (PIS), M600/M610 (COFINS)" },
+        { "fonte": "DCTF", "referencia": "Débitos confessados" },
+        { "fonte": "ECD", "referencia": "J100 — contas de tributos a recolher" },
+        { "fonte": "ECF", "referencia": "N630 (IRPJ), N670 (CSLL)" },
+        { "fonte": "PGDAS_D", "referencia": "DAS apurado e repartição por tributo" }
+      ],
+      "cruzamentos": [
+        {
+          "id": "das_x_receita_declarada",
+          "rotulo": "DAS apurado × receita declarada (Simples)",
+          "de": "PGDAS_D",
+          "para": "PGDAS_D",
+          "toleranciaPct": 1,
+          "exigeAmbasObrigatorias": true
+        }
+      ]
+    },
+    {
+      "id": "estoques_cmv",
+      "nome": "Estoques e CMV",
+      "prioridade": "recomendado",
+      "periodicidade": "anual",
+      "descricao": "Estoque final e custo da mercadoria vendida devem ser consistentes entre inventário fiscal e contabilidade.",
+      "implementado": true,
+      "pontas": [
+        { "fonte": "DFE", "referencia": "Entradas e saídas de mercadoria" },
+        { "fonte": "EFD_ICMS_IPI", "referencia": "Bloco H — inventário" },
+        { "fonte": "ECD", "referencia": "Contas 04.* — custos e despesas" },
+        { "fonte": "ECF", "referencia": "L300" }
+      ],
+      "cruzamentos": [
+        {
+          "id": "aquisicoes_x_custos_ecd",
+          "rotulo": "Aquisições fiscais × custos ECD (04.*)",
+          "de": "EFD_ICMS_IPI",
+          "para": "ECD",
+          "toleranciaPct": 20,
+          "exigeAmbasObrigatorias": true
+        }
+      ]
+    },
+    {
+      "id": "distribuicao_lucros",
+      "nome": "Distribuição de lucros",
+      "prioridade": "recomendado",
+      "periodicidade": "anual",
+      "descricao": "Lucro distribuído precisa ter lastro contábil. Valor fixo mensal sem lastro pode ser requalificado como pró-labore.",
+      "implementado": false,
+      "pontas": [
+        { "fonte": "EFD_REINF", "referencia": "Distribuição de lucros a partir de 2024" },
+        { "fonte": "ECD", "referencia": "Conta de lucros/prejuízos acumulados" },
+        { "fonte": "ECF", "referencia": "Bloco de lucros distribuídos" },
+        { "fonte": "DIRPF", "referencia": "Rendimentos isentos dos sócios" }
+      ],
+      "cruzamentos": []
+    },
+    {
+      "id": "folha_pagamento",
+      "nome": "Folha de pagamento",
+      "prioridade": "recomendado",
+      "periodicidade": "mensal",
+      "implementado": false,
+      "pontas": [
+        { "fonte": "ESOCIAL", "referencia": "Remunerações" },
+        { "fonte": "ECD", "referencia": "Contas de despesa de pessoal" },
+        { "fonte": "ECF", "referencia": "L300" }
+      ],
+      "cruzamentos": []
+    },
+    {
+      "id": "retencoes",
+      "nome": "Retenções",
+      "prioridade": "recomendado",
+      "periodicidade": "mensal",
+      "implementado": false,
+      "pontas": [
+        { "fonte": "EFD_REINF", "referencia": "Retenções de contribuições e IR" },
+        { "fonte": "DCTF", "referencia": "Débitos retidos" },
+        { "fonte": "ECD", "referencia": "Contas de tributos retidos" }
+      ],
+      "cruzamentos": []
+    },
+    {
+      "id": "fornecedores_pagamentos",
+      "nome": "Fornecedores e formas de pagamento",
+      "prioridade": "recomendado",
+      "periodicidade": "mensal",
+      "descricao": "Meios de pagamento eletrônicos declarados no documento fiscal devem refletir na movimentação contábil de disponibilidades e de fornecedores/clientes.",
+      "implementado": false,
+      "pontas": [
+        { "fonte": "DFE", "referencia": "Grupo de pagamento (à vista, a prazo, PIX, cartão)" },
+        { "fonte": "EFD_ICMS_IPI", "referencia": "Meios de pagamento" },
+        { "fonte": "ECD", "referencia": "Disponibilidades, fornecedores, clientes" },
+        { "fonte": "TERCEIROS", "referencia": "e-Financeira e administradoras de cartão" }
+      ],
+      "cruzamentos": []
+    },
+    {
+      "id": "ativo_imobilizado",
+      "nome": "Ativo imobilizado",
+      "prioridade": "recomendado",
+      "periodicidade": "anual",
+      "descricao": "Classificação do tipo de item na entrada define crédito de ICMS em 1/48 (bloco G/CIAP), crédito de PIS/COFINS por depreciação e o registro contábil.",
+      "implementado": false,
+      "pontas": [
+        { "fonte": "DFE", "referencia": "NF-e de aquisição de bem" },
+        { "fonte": "EFD_ICMS_IPI", "referencia": "Bloco G — CIAP" },
+        { "fonte": "ECD", "referencia": "Contas do imobilizado e depreciação" },
+        { "fonte": "ECF", "referencia": "Bloco de ativo" }
+      ],
+      "cruzamentos": []
+    },
+    {
+      "id": "capital_social",
+      "nome": "Capital social",
+      "prioridade": "recomendado",
+      "periodicidade": "anual",
+      "implementado": false,
+      "pontas": [
+        { "fonte": "ECD", "referencia": "J100 — patrimônio líquido" },
+        { "fonte": "ECF", "referencia": "Bloco de patrimônio" },
+        { "fonte": "DIRPF", "referencia": "Participações dos sócios" },
+        { "fonte": "ATO_CONSTITUTIVO", "referencia": "Contrato social" }
+      ],
+      "cruzamentos": []
+    }
+  ]
+}

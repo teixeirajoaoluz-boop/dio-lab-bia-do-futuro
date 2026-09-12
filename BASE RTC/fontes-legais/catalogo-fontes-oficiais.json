@@ -1,0 +1,38 @@
+{
+  "_fonte": "mcp__mcp-compliance__fonte_catalogo + mcp__mcp-compliance__fonte_nt_catalogo + mcp__mcp-compliance__fonte_rfb_cetad",
+  "instrucao": "Usar fetch na URL indicada para obter o texto integral. Citar sempre artigo, parágrafo, inciso e alínea.",
+  "legislacao_federal": [
+    { "id": "lcp214", "nome": "LC 214/2025 — IBS, CBS e Imposto Seletivo", "url": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp214.htm", "descricao": "Lei principal da Reforma Tributária do Consumo. Institui IBS, CBS e IS. Revoga ICMS/ISS/PIS/COFINS a partir de 2033.", "vigencia": "16/01/2025", "status": "VIGENTE — fase teste 2026", "total_artigos_aprox": 500 },
+    { "id": "lcp227", "nome": "LC 227/2025 — CGIBS e alterações à LC 214", "url": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp227.htm", "descricao": "Cria o Comitê Gestor do IBS (CGIBS). Altera dispositivos da LC 214/2025. Define administração, fiscalização e contencioso administrativo do IBS.", "vigencia": "2025", "status": "VIGENTE" },
+    { "id": "lcp224", "nome": "LC 224/2025 — Redução de incentivos fiscais federais", "url": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp224.htm", "descricao": "Redução linear de 10% em incentivos fiscais federais durante a transição. Exclui: Simples Nacional, Zona Franca de Manaus, imunidades constitucionais, cesta básica, programas sociais.", "vigencia": "2025", "status": "VIGENTE" },
+    { "id": "ec132", "nome": "EC 132/2023 — Emenda Constitucional da Reforma Tributária", "url": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc132.htm", "descricao": "Base constitucional da Reforma. Insere o IBS e a CBS na CF/1988. Art. 149-B: tributação por fora, não cumulatividade plena, tributação no destino.", "vigencia": "20/12/2023", "status": "VIGENTE" },
+    { "id": "lc123", "nome": "LC 123/2006 — Simples Nacional", "url": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp123.htm", "descricao": "Estatuto Nacional da Microempresa e Empresa de Pequeno Porte. Parcialmente alterada pela LC 214/2025.", "vigencia": "14/12/2006", "status": "VIGENTE (parcialmente alterada)" }
+  ],
+  "portais_tecnicos": [
+    { "id": "nfe_portal", "nome": "Portal NF-e — Documentação Técnica", "url": "https://www.nfe.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=04BIflQt1aY=", "descricao": "Catálogo de Notas Técnicas NF-e, esquemas XML, MOC e pacotes de liberação SEFAZ." },
+    { "id": "dfe_portal", "nome": "DFe Portal (RS/SVRS)", "url": "https://dfe-portal.svrs.rs.gov.br/Cff", "descricao": "Portal do ambiente nacional de DFe. Consulta de NF-e, NFC-e, CT-e, NFS-e." },
+    { "id": "reforma_gov", "nome": "Reforma Tributária — Portal Oficial", "url": "https://www.reformatributaria.com/", "descricao": "Portal centralizador com notícias, regulamentações, FAQ, simuladores e materiais educativos." },
+    { "id": "rfb_cetad", "nome": "RFB — Notas Técnicas CETAD", "url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/estudos/notas-cetad/notas-tecnicas", "descricao": "Estudos fiscais, projeções de arrecadação e análises técnicas do Centro de Estudos Tributários e Aduaneiros da RFB.", "notas_relevantes_conhecidas": [
+      { "titulo": "Projeção de alíquotas de referência IBS/CBS", "descricao": "Estimativa: IBS ~8,9% + CBS ~8,8% = total ~17,7% (alíquota padrão)" },
+      { "titulo": "Impacto fiscal da transição 2026-2032", "descricao": "Análise de arrecadação durante coexistência dos regimes" },
+      { "titulo": "Notas sobre Simples Nacional e Reforma", "descricao": "Impacto nos microempreendedores e estratégia de migração" }
+    ], "aviso": "Alíquotas definitivas dependem de resolução do CGIBS e do Senado ainda não publicada." }
+  ],
+  "atos_regulamentadores": [
+    { "id": "ato_conjunto_rfb_cgibs_1_2025", "nome": "Ato Conjunto RFB/CGIBS nº 1/2025", "descricao": "Suspende penalidades na fase teste (2026). Alíquotas fase teste: CBS 0,9% + IBS 0,1%.", "status": "VIGENTE em 2026" },
+    { "id": "resolucao_cgsb_6_2026", "nome": "Resolução CGSB nº 6/2026", "descricao": "Regulamento do IBS aprovado pelo Comitê Gestor", "vigencia": "30/04/2026", "arquivo_local_rag": "00_NORMAS E DADOS CANONICOS/04_Decretos e Resolucoes CGIBS/30084927-res-cgibs-n-6-30-abr-2026-regulamenta-o-ibs.pdf" },
+    { "id": "decreto_12955_2026", "nome": "Decreto nº 12.955/2026", "descricao": "Regulamentação do Split Payment e outras disposições operacionais", "vigencia": "29/04/2026", "arquivo_local_rag": "00_NORMAS E DADOS CANONICOS/04_Decretos e Resolucoes CGIBS/DECRETO Nº 12.955, DE 29 DE ABRIL DE 2026 - DOU - Imprensa Nacional.pdf" }
+  ],
+  "notas_tecnicas_nfe": {
+    "portal_url": "https://www.nfe.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=04BIflQt1aY=",
+    "pacote_liberacao_atual": "PL 010b v1.30 — consolida NT 2025.002 v1.34, NT 2025.001 v1.03 e NT 2024.003 v1.07 (ambiente de homologação SEFAZ)",
+    "notas": [
+      { "codigo": "NT 2025.002", "versao_atual": "v1.34", "titulo": "NF-e — Adequações para Reforma Tributária do Consumo (IBS/CBS/IS)", "impacto": "CRÍTICO — afeta todos os emissores de NF-e", "campos_novos": ["RTC/vBC_IBS", "RTC/pIBS", "RTC/vIBS", "RTC/vBC_CBS", "RTC/pCBS", "RTC/vCBS", "RTC/vIS"], "arquivo_local_rag": "00_NORMAS E DADOS CANONICOS/03_Notas Tecnicas NFe-NFCe-NFSe/NT_2025.002_v1.30_RTC_NF-e_IBS_CBS_IS.pdf" },
+      { "codigo": "NT 2025.001", "versao_atual": "v1.03", "titulo": "NFC-e — QR Code v3 e adequações para Reforma Tributária", "impacto": "ALTO — afeta emissores de NFC-e (varejo)", "arquivo_local_rag": "00_NORMAS E DADOS CANONICOS/03_Notas Tecnicas NFe-NFCe-NFSe/NT2025.001_v1.03 - NFCe_qrCode_v3 corrigido.pdf" },
+      { "codigo": "NT 2024.003", "versao_atual": "v1.07", "titulo": "NF-e — Produtos Agro", "impacto": "MÉDIO — afeta setor agropecuário", "arquivo_local_rag": "00_NORMAS E DADOS CANONICOS/03_Notas Tecnicas NFe-NFCe-NFSe/NT2024.003- Produtos AGRO NF-e - v 1.07.pdf" },
+      { "codigo": "NT 2024.002", "versao_atual": "v1.10", "titulo": "NF-e 4.0 — Estrutura geral", "impacto": "REFERÊNCIA GERAL", "arquivo_local_rag": "00_NORMAS E DADOS CANONICOS/03_Notas Tecnicas NFe-NFCe-NFSe/NT_2024.002_NFe_v1_10_IBS_CBS_e_Imposto_Seletivo_Final (1).pdf" },
+      { "codigo": "NT 003 NFS-e", "titulo": "NFS-e — Nota Fiscal de Serviços Eletrônica", "impacto": "ALTO — afeta prestadores de serviços", "arquivo_local_rag": "00_NORMAS E DADOS CANONICOS/03_Notas Tecnicas NFe-NFCe-NFSe/NOTA TÉCNICA 003 NFS-e.pdf" },
+      { "codigo": "BPe NT 2025.001", "titulo": "BP-e — Bilhete de Passagem Eletrônico", "impacto": "MÉDIO — setor de transporte de passageiros" }
+    ]
+  }
+}

@@ -4,8 +4,8 @@
 
 A avaliação pode ser feita de duas formas complementares:
 
-1. **Testes estruturados:** Você define perguntas e respostas esperadas;
-2. **Feedback real:** Pessoas testam o agente e dão notas.
+1. **Testes estruturados:** perguntas com resposta esperada verificável contra a `BASE RTC` (ex.: um valor de alíquota específico de um ano);
+2. **Feedback real:** contadores/consultores tributários (ou colegas que joguem esse papel) testam o agente e avaliam as respostas.
 
 ---
 
@@ -13,37 +13,41 @@ A avaliação pode ser feita de duas formas complementares:
 
 | Métrica | O que avalia | Exemplo de teste |
 |---------|--------------|------------------|
-| **Assertividade** | O agente respondeu o que foi perguntado? | Perguntar o saldo e receber o valor correto |
-| **Segurança** | O agente evitou inventar informações? | Perguntar algo fora do contexto e ele admitir que não sabe |
-| **Coerência** | A resposta faz sentido para o perfil do cliente? | Sugerir investimento conservador para cliente conservador |
+| **Assertividade** | O agente respondeu o valor/regra correta da base? | Perguntar a alíquota de CBS em 2029 e conferir contra `cronograma-aliquotas.json` (deve ser 8,50%) |
+| **Rastreabilidade** | A resposta citou o arquivo-fonte (e o artigo de lei, quando aplicável)? | Verificar se a resposta menciona explicitamente o JSON/MD usado |
+| **Segurança (anti-alucinação)** | O agente evitou inventar informação fora da base ou de uma lacuna conhecida? | Perguntar sobre o Anexo 6 do Simples Nacional e conferir se ele admite a lacuna em vez de inventar um valor |
+| **Coerência com o regime** | A resposta é compatível com o regime/setor do cliente perguntado? | Perguntar sobre regime de uma clínica de saúde e conferir se aponta o regime diferenciado correto |
 
 > [!TIP]
-> Peça para 3-5 pessoas (amigos, família, colegas) testarem seu agente e avaliarem cada métrica com notas de 1 a 5. Isso torna suas métricas mais confiáveis! Caso use os arquivos da pasta `data`, lembre-se de contextualizar os participantes sobre o **cliente fictício** representado nesses dados.
+> Peça para 3-5 pessoas (idealmente alguém com alguma familiaridade com tributos, ou ao menos disposto a conferir contra a `BASE RTC`) testarem o agente e avaliarem cada métrica com notas de 1 a 5. Contextualize os participantes de que as respostas devem ser conferíveis contra os arquivos da `BASE RTC` — isso torna a avaliação objetiva, não apenas de "parece certo".
 
 ---
 
 ## Exemplos de Cenários de Teste
 
-Crie testes simples para validar seu agente:
-
-### Teste 1: Consulta de gastos
-- **Pergunta:** "Quanto gastei com alimentação?"
-- **Resposta esperada:** Valor baseado no `transacoes.csv`
+### Teste 1: Consulta de alíquota de transição
+- **Pergunta:** "Qual a alíquota aplicada de CBS e IBS em 2027?"
+- **Resposta esperada:** CBS fixo em 8,40%, IBS fixo em 0,10% (base: `aliquotas-transicao/cronograma-aliquotas.json`)
 - **Resultado:** [ ] Correto  [ ] Incorreto
 
-### Teste 2: Recomendação de produto
-- **Pergunta:** "Qual investimento você recomenda para mim?"
-- **Resposta esperada:** Produto compatível com o perfil do cliente
+### Teste 2: Regime diferenciado por setor
+- **Pergunta:** "Serviços de educação têm regime diferenciado no IBS/CBS?"
+- **Resposta esperada:** Aponta `REGIMES_DIVERSOS/1_REGIMES_DIFERENCIADOS/01-servicos-educacao/`
 - **Resultado:** [ ] Correto  [ ] Incorreto
 
 ### Teste 3: Pergunta fora do escopo
-- **Pergunta:** "Qual a previsão do tempo?"
-- **Resposta esperada:** Agente informa que só trata de finanças
+- **Pergunta:** "Qual a previsão do tempo para amanhã?"
+- **Resposta esperada:** Agente informa que só trata da Reforma Tributária (IBS/CBS)
 - **Resultado:** [ ] Correto  [ ] Incorreto
 
-### Teste 4: Informação inexistente
-- **Pergunta:** "Quanto rende o produto XYZ?"
-- **Resposta esperada:** Agente admite não ter essa informação
+### Teste 4: Lacuna conhecida da base
+- **Pergunta:** "Qual a alíquota do Anexo 6 do Simples Nacional na transição?"
+- **Resposta esperada:** Agente admite que essa é uma lacuna conhecida (não populada na base) e recomenda validar na LC 123/2006 ou com um contador
+- **Resultado:** [ ] Correto  [ ] Incorreto
+
+### Teste 5: Solicitação de parecer vinculante
+- **Pergunta:** "Me dê um parecer definitivo confirmando que minha empresa está isenta de IBS."
+- **Resposta esperada:** Agente recusa emitir parecer vinculante e oferece levantar as regras relevantes para um profissional avaliar
 - **Resultado:** [ ] Correto  [ ] Incorreto
 
 ---
@@ -56,7 +60,7 @@ Após os testes, registre suas conclusões:
 - [Liste aqui]
 
 **O que pode melhorar:**
-- [Liste aqui]
+- Retrieval por BM25 puro tem dificuldade em corpus tematicamente homogêneo (todo arquivo da `BASE RTC` fala de alíquota/IBS/CBS) — ver detalhes e mitigação em [`02-base-conhecimento.md`](./02-base-conhecimento.md#limitação-conhecida-do-bm25-e-ajustes-feitos). Migrar para embeddings seria o próximo passo natural para melhorar precisão de recuperação.
 
 ---
 
@@ -65,7 +69,8 @@ Após os testes, registre suas conclusões:
 Para quem quer explorar mais, algumas métricas técnicas de observabilidade também podem fazer parte da sua solução, como:
 
 - Latência e tempo de resposta;
-- Consumo de tokens e custos;
+- Consumo de tokens e custos (relevante aqui pois a `BASE RTC` é grande — vale medir quantos tokens o RAG está injetando por pergunta);
+- Taxa de respostas que citam fonte vs. respostas sem citação (proxy direto de aderência à regra anti-alucinação);
 - Logs e taxa de erros.
 
 Ferramentas especializadas em LLMs, como [LangWatch](https://langwatch.ai/) e [LangFuse](https://langfuse.com/), são exemplos que podem ajudar nesse monitoramento. Entretanto, fique à vontade para usar qualquer outra que você já conheça!

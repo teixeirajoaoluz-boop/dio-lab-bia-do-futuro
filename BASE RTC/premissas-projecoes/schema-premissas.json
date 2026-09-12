@@ -1,0 +1,185 @@
+{
+  "$schema_nota": "Reconstrução a partir de premissas.py + tabelas SQL do Guerra RTC (25/08/2026). NÃO é cópia do premissas.schema.json oficial (vive em G:\\...\\mcp-planejamento-RTC\\premissas.schema.json, não lido nesta tarefa). Sem dados de cliente.",
+  "fontes": [
+    "c:\\MCPs\\05_Consultor_Tributario\\mcp-planejamento-RTC\\mcp_planejamento_rtc\\premissas.py",
+    "c:\\Projetos Tecnologicos\\02_Guerra RTC\\backend\\base_sql\\26_criar_tabela_premissas.sql",
+    "c:\\Projetos Tecnologicos\\02_Guerra RTC\\backend\\base_sql\\25_criar_tabela_receita_projecao.sql"
+  ],
+  "premissas_json_mcp_planejamento_rtc": {
+    "descricao": "Contrato de entrada validado por premissas.py (função validar/carregar).",
+    "campos": {
+      "empresa": {
+        "tipo": "object",
+        "descricao": "Identificação cadastral. Estrutura observada no exemplo real, não imposta por regra explícita em premissas.py.",
+        "campos_observados": {
+          "razao_social": "string",
+          "cnpj": "string (14 dígitos)",
+          "regime": "string (ex.: 'SN' = Simples Nacional; não há enum fechado no código lido)",
+          "perfil": "string (ex.: 'servicos'; não há enum fechado no código lido)",
+          "cnae_principal": "string",
+          "descricao_atividade": "string",
+          "exercicio_ecf": "integer (ano-base da ECF usada como Fonte A)",
+          "socios": "array de {nome, cpf, participacao} — não validado por premissas.py"
+        }
+      },
+      "ecf": {
+        "tipo": "object",
+        "descricao": "Fonte A — valores brutos do último exercício da ECF. Único bloco com regras de negócio explícitas em premissas.py.",
+        "obrigatorio_para_calculo_derivados": true,
+        "campos": {
+          "receita_bruta": {
+            "tipo": "number",
+            "descricao": "Receita bruta total do exercício. Usada na regra de consistência com exportacao+mercado_interno (tolerância 5%)."
+          },
+          "exportacao": {
+            "tipo": "number",
+            "descricao": "Parcela da receita bruta oriunda de exportação."
+          },
+          "mercado_interno": {
+            "tipo": "number",
+            "descricao": "Parcela da receita bruta do mercado interno. NÃO PODE SER ZERO — usada como denominador em calcular_derivados(); zero levanta ValueError."
+          },
+          "pis_cofins": {
+            "tipo": "number",
+            "descricao": "PIS/COFINS apurados no exercício. Compõe o numerador de extracao_art12."
+          },
+          "icms": {
+            "tipo": "number",
+            "descricao": "ICMS apurado no exercício. Compõe extracao_art12 e é o numerador de icms_efetivo."
+          },
+          "iss": {
+            "tipo": "number",
+            "descricao": "ISS apurado no exercício. Compõe o numerador de extracao_art12."
+          },
+          "ipi": {
+            "tipo": "number",
+            "descricao": "IPI apurado no exercício. Presente no exemplo real, mas NÃO usado por calcular_derivados() em premissas.py — campo informativo apenas, segundo o código lido."
+          }
+        }
+      },
+      "derivados": {
+        "tipo": "object",
+        "descricao": "Calculados a partir de `ecf` por calcular_derivados(). Nunca copiados de outra empresa (regra explícita no docstring). Se informados no JSON, precisam bater com o recálculo (tolerância 1e-4).",
+        "formula_fonte": "premissas.py, calcular_derivados(), linhas 20-29",
+        "campos": {
+          "extracao_art12": {
+            "tipo": "number (arredondado a 6 casas)",
+            "formula": "(ecf.pis_cofins + ecf.icms + ecf.iss) / ecf.mercado_interno"
+          },
+          "icms_efetivo": {
+            "tipo": "number (arredondado a 6 casas)",
+            "formula": "ecf.icms / ecf.mercado_interno"
+          },
+          "ipi_2027_em_diante": {
+            "tipo": "number",
+            "descricao": "Presente no exemplo real. NÃO é calculado por calcular_derivados() no código lido — origem/regra deste campo é uma lacuna."
+          }
+        }
+      },
+      "pgdas_historico": {
+        "tipo": "object",
+        "descricao": "Bloco presente no exemplo real (Simples Nacional). NÃO referenciado por nenhuma regra de validação em premissas.py — estrutura observacional, não uma regra imposta pelo módulo.",
+        "campos_observados": {
+          "faturamento_2025": "number",
+          "rbt12_maio_2026": "number (RBT12 = receita bruta últimos 12 meses)",
+          "rba_jan_mai_2026": "number",
+          "media_mensal_2026": "number",
+          "das_efetivo_mai2026": "number (alíquota efetiva do DAS)",
+          "faturamento_mensal_2025": "object {'AAAA-MM': number}",
+          "faturamento_mensal_2026": "object {'AAAA-MM': number}",
+          "composicao_receita_mai2026": "object — decomposição por anexo do Simples (ex.: comercio_anexo1, servicos_anexo3_iss_proprio/retido, construcao_civil_iss_proprio/retido)"
+        }
+      },
+      "alertas": {
+        "tipo": "object",
+        "descricao": "Bloco observacional do exemplo real, sem regra de validação correspondente em premissas.py.",
+        "campos_observados": {
+          "rbt12_acima_sublimite_ce": "boolean",
+          "sublimite_ce": "number",
+          "rbt12_atual": "number",
+          "contrato_locacao_vencido": "string (data)",
+          "parcelamento_relpsn": "object {numero, parcelas_totais, parcela_atual_jan2026}",
+          "das_mai2026_vencimento": "string (data)"
+        }
+      },
+      "crescimento_aa": {
+        "tipo": "number",
+        "descricao": "Taxa de crescimento ao ano usada como premissa de projeção. Presente no exemplo real; NÃO validada por regra explícita em premissas.py — é a premissa de negócio mais próxima de 'crescimento de vendas' mencionada no pedido original, mas o código de validação não a trata."
+      },
+      "razao_credito": {
+        "tipo": "number",
+        "descricao": "Proporção de crédito tributário aproveitável. Presente no exemplo real; sem regra de validação em premissas.py."
+      },
+      "serie_anual": {
+        "tipo": "array",
+        "descricao": "Fonte B — série CBS/IBS 2027-2033 vinda da 'memória 08 da plataforma RTC' (premissas.py, docstring). ÚNICA regra explícita: precisa cobrir todos os anos de 2027 a 2033 (validar(), linhas 73-77).",
+        "regra_validacao": "para cada ano em range(2027, 2034), deve existir pelo menos um item com esse 'ano' — senão é reportado em `problemas` como '[regra] série anual sem os anos: [...]'.",
+        "item_esperado": {
+          "ano": "integer — ÚNICO campo cuja presença é checada pelo código lido",
+          "demais_campos": "LACUNA — formato de cada item da série não está definido em premissas.py; exemplo real trouxe lista vazia ([])."
+        }
+      },
+      "_validacao": {
+        "tipo": "array de string",
+        "descricao": "Anexado automaticamente por carregar() quando validar_tambem=True. Lista de problemas encontrados (schema + regras de negócio); vazia = OK. Nunca lança exceção."
+      }
+    }
+  },
+  "guerra_rtc_tabela_premissas_generica": {
+    "descricao": "PROJETOBEF.premissas — grade livre por empresa, sem schema fixo de premissa tributária.",
+    "fonte": "26_criar_tabela_premissas.sql",
+    "campos": {
+      "id": {"tipo": "VARCHAR(255) PK", "descricao": "Identificador único da premissa."},
+      "companyId": {"tipo": "VARCHAR(255) FK -> companies.id", "descricao": "Empresa dona da premissa. ON DELETE CASCADE."},
+      "name": {"tipo": "VARCHAR(255)", "descricao": "Nome dado pelo usuário à premissa."},
+      "description": {"tipo": "TEXT", "descricao": "Descrição livre."},
+      "columns": {"tipo": "JSONB", "descricao": "Definição de colunas — lista de objetos com id/label. Estrutura de cada objeto não é fixada pelo SQL."},
+      "rows": {"tipo": "JSONB", "descricao": "Linhas preenchidas pelo usuário, cada uma com valores por coluna. Estrutura livre."},
+      "metadata": {"tipo": "JSONB (nullable)", "descricao": "Sem estrutura definida no SQL."},
+      "createdAt": {"tipo": "TIMESTAMP", "default": "CURRENT_TIMESTAMP"},
+      "updatedAt": {"tipo": "TIMESTAMP", "default": "CURRENT_TIMESTAMP"}
+    }
+  },
+  "guerra_rtc_tabela_receita_projecao": {
+    "descricao": "PROJETOBEF.receita_projecao — projeção de receita item a item, ano a ano, 2027-2033. Um registro por receita consolidada importada (1:1 via UNIQUE receita_id).",
+    "fonte": "25_criar_tabela_receita_projecao.sql",
+    "campos_identificacao": {
+      "id": {"tipo": "UUID PK", "default": "gen_random_uuid()"},
+      "receita_id": {"tipo": "UUID NOT NULL, FK -> consolidated_revenues.id, UNIQUE", "descricao": "Vínculo 1:1 com a receita importada de origem. ON DELETE CASCADE."},
+      "data_projetada": {"tipo": "DATE", "descricao": "Data de referência da projeção (indexada)."},
+      "tipo_receita": {"tipo": "TEXT"},
+      "codigo_item_servico": {"tipo": "TEXT"},
+      "descricao_produto_servico": {"tipo": "TEXT"}
+    },
+    "campos_premissa": {
+      "percentual_crescimento": {"tipo": "NUMERIC(7,4)", "default": 0, "descricao": "Crescimento aplicado (armazenado como decimal 0-100)."},
+      "reducao_ibs_percentual": {"tipo": "NUMERIC(7,4)", "default": 0, "descricao": "Redução de alíquota de IBS aplicável ao item (ex.: regime diferenciado)."},
+      "reducao_cbs_percentual": {"tipo": "NUMERIC(7,4)", "default": 0, "descricao": "Redução de alíquota de CBS aplicável ao item."}
+    },
+    "campos_por_ano": {
+      "descricao": "Bloco repetido para cada ano de 2027 a 2033 (7 anos), com sufixo _AAAA. Fórmula de geração de cada campo vive em formulas_glossario (conteúdo não lido nesta tarefa).",
+      "anos": [2027, 2028, 2029, 2030, 2031, 2032, 2033],
+      "campos_por_ano_template": {
+        "valor_operacao_AAAA": {"tipo": "NUMERIC(18,2)", "descricao": "Valor de operação projetado para o ano."},
+        "percentual_ibs_AAAA": {"tipo": "NUMERIC(7,4)", "descricao": "Alíquota efetiva de IBS aplicada no ano (cronograma de transição implícito, valores mudam ano a ano)."},
+        "valor_ibs_AAAA": {"tipo": "NUMERIC(18,2)", "descricao": "Valor de IBS resultante no ano."},
+        "percentual_cbs_AAAA": {"tipo": "NUMERIC(7,4)", "descricao": "Alíquota efetiva de CBS aplicada no ano."},
+        "valor_cbs_AAAA": {"tipo": "NUMERIC(18,2)", "descricao": "Valor de CBS resultante no ano."}
+      }
+    },
+    "auditoria": {
+      "createdAt": {"tipo": "TIMESTAMP", "default": "CURRENT_TIMESTAMP"},
+      "updatedAt": {"tipo": "TIMESTAMP", "default": "CURRENT_TIMESTAMP"}
+    },
+    "constraints": [
+      "UNIQUE (receita_id)",
+      "FK receita_id -> consolidated_revenues(id) ON DELETE CASCADE",
+      "INDEX único em receita_id",
+      "INDEX em data_projetada"
+    ]
+  },
+  "glossario_formulas_referenciado": {
+    "descricao": "Tabela public.formulas_glossario existe e documenta fórmulas para colunas de receita_projecao (ex.: valor_operacao_*). Verificada por 30_check_formulas_glossario.py, mas o CONTEÚDO das expressões não foi lido nesta tarefa — lacuna.",
+    "campos_observados_no_script_de_check": ["tabela", "coluna", "sigla", "expressao_texto", "descricao"]
+  }
+}

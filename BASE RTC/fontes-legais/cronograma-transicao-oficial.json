@@ -1,0 +1,49 @@
+{
+  "_fonte": "mcp__mcp-compliance__alegacao_cronograma_transicao",
+  "_relacao_com_esta_base": "Este é o cronograma OFICIAL com base legal artigo-a-artigo. Ele fundamenta juridicamente os números já calculados em aliquotas-transicao/cronograma-aliquotas.json (que descreve o COMO CALCULAR — regra de negócio da plataforma). Use os dois em conjunto: este arquivo para citar a lei, aquele para os percentuais aplicados.",
+  "descricao": "Cronograma oficial de implementação da Reforma Tributária. Sempre indicar o ano de referência nas respostas técnicas.",
+  "vigencia_plena": 2033,
+  "aviso": "Este cronograma reflete a LC 214/2025 consolidada até jun/2026. Verificar se houve publicação de LC, PLP ou regulamento subsequente antes de responder ao cliente.",
+  "fases": [
+    {
+      "periodo": "2026",
+      "titulo": "Fase de Testes",
+      "descricao": "Alíquotas fase teste: CBS 0,9% + IBS 0,1% (Informe Técnico 2026.002). ATENÇÃO: prazo de suspensão de penalidades expirou em 31/05/2026 — obrigações plenamente exigíveis com penalidades desde 01/06/2026.",
+      "tributos_antigos": "ICMS/ISS/PIS/COFINS integrais — sem redução ainda",
+      "obrigacoes": ["Informar grupo RTC na NF-e (facultativo em 2026)", "PGDAS-D continua para Simples Nacional"],
+      "base_legal": ["LC 214/2025", "Ato Conjunto RFB/CGIBS nº 1/2025", "Informe Técnico 2026.002"]
+    },
+    {
+      "periodo": "2027",
+      "titulo": "Início da Transição",
+      "descricao": "Início da cobrança efetiva de IBS e CBS. Split Payment B2B implementado. Imposto Seletivo (IS) entra em vigor.",
+      "tributos_antigos": "Redução de 10 pp nos tributos antigos (ICMS/ISS/PIS/COFINS)",
+      "obrigacoes": ["Grupo RTC na NF-e obrigatório", "Split Payment B2B obrigatório nas operações com pagamento bancário integrado", "IS incide sobre produtos nocivos"],
+      "base_legal": ["LC 214/2025", "art. 34 — Split Payment"]
+    },
+    {
+      "periodo": "2028-2032",
+      "titulo": "Redução Gradual",
+      "descricao": "Redução progressiva de 10 pp/ano nos tributos antigos. Coexistência entre regimes antigo e novo.",
+      "tributos_antigos": "Redução de 10 pp/ano: 20% em 2028, 30% em 2029... até 80% em 2032",
+      "obrigacoes": ["Apuração paralela dos dois sistemas durante a transição"],
+      "base_legal": ["LC 214/2025, arts. de transição (337-370)"]
+    },
+    {
+      "periodo": "2033",
+      "titulo": "Vigência Plena",
+      "descricao": "IBS e CBS substituem integralmente ICMS, ISS, PIS e COFINS. Extinção dos tributos antigos.",
+      "tributos_antigos": "Extintos: ICMS, ISS, PIS, COFINS",
+      "tributos_novos": "IBS + CBS + IS em vigor pleno",
+      "base_legal": ["LC 214/2025"]
+    }
+  ],
+  "simples_nacional": {
+    "transicao": [
+      "2026-2028: recolhimento exclusivo pelo PGDAS-D (Simples mantém separação)",
+      "2029+: integração progressiva do IBS/CBS ao DAS (aguardando regulamentação CGIBS/RFB)",
+      "Destaque de IBS/CBS na NF-e: facultativo para empresas do Simples em 2026"
+    ],
+    "credito_restrito": "Tomadores de serviços de empresas do Simples terão crédito restrito de IBS/CBS — percentual exato aguarda regulamentação do CGIBS"
+  }
+}

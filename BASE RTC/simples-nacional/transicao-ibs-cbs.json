@@ -1,0 +1,183 @@
+{
+  "versao": "1.0.0",
+  "atualizadoEm": "2026-08-26",
+  "descricao": "Como o optante do Simples Nacional é afetado por IBS e CBS: cenários de recolhimento dentro do DAS ou pelo regime regular, cronograma de transição e efeito do crédito na cadeia.",
+  "fonte": {
+    "normativa": "LC 214/2025 (arts. 41, 47, 127, 343 a 348, 381 e 517) e LC 123/2006",
+    "referenciaOperacional": "Simulador Guerra RTC — sn-transicao (cenários por dentro/por fora) e dominando-simples",
+    "confianca": "media",
+    "observacao": "As tabelas dos anexos são texto legal e têm confiança alta. Este arquivo trata de cronograma e de alíquota de referência, que dependem de regulamentação e de projeção — todo número marcado como premissa é editável na tela."
+  },
+  "atualizacaoCgsn190_191_2026": {
+    "vigenciaRegraIbsCbsSimples": "2027-01-01",
+    "sublimite": 3600000,
+    "regra": "A partir de 2027, o sublimite de R$ 3,6 milhões é considerado para o recolhimento do IBS, além de ICMS e ISS, dentro do Simples Nacional. Ultrapassado o sublimite e produzidos os efeitos temporais aplicáveis, o IBS fica impedido de recolhimento dentro do Simples; a CBS não integra esse impedimento específico e pode permanecer no DAS, salvo opção do contribuinte pelo regime regular de IBS e CBS.",
+    "efeito2026OptanteSimples": "As regras de IBS/CBS para optantes do Simples produzem efeitos a partir de 1º de janeiro de 2027; as alíquotas-teste gerais de 2026 não se aplicam às operações do optante do Simples.",
+    "fontesOficiais": [
+      "https://www.gov.br/fazenda/pt-br/assuntos/noticias/2026/agosto/cgsn-atualiza-regras-do-simples-nacional-para-adequacao-a-reforma-tributaria-do-consumo",
+      "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2026/agosto/simples-nacional-nfs-e-nacional-sera-obrigatoria-para-me-e-epp-a-partir-de-1o-de-novembro-de-2026/",
+      "https://normas.receita.fazenda.gov.br/sijut2consulta/consulta.action?orgaosSelecionados=CGSN&tipoData=2&tiposAtosSelecionados=67"
+    ],
+    "atos": ["Resolução CGSN 190/2026", "Resolução CGSN 191/2026"],
+    "confianca": "alta"
+  },
+  "premissasEditaveis": {
+    "aliquotaReferenciaTotal": {
+      "default": 26.5,
+      "presets": [25.0, 26.5, 28.0],
+      "composicaoDefault": { "ibs": 17.2, "cbs": 9.3 },
+      "natureza": "premissa",
+      "descricao": "Alíquota de referência do regime pleno usada nas simulações. Não é alíquota legal fixada — será definida por lei ordinária a partir da avaliação de arrecadação."
+    }
+  },
+  "cronograma": [
+    {
+      "ano": 2026,
+      "fase": "teste",
+      "ibs": 0.1,
+      "cbs": 0.9,
+      "confianca": "alta",
+      "efeitoNoOptante": "Fase de teste com obrigações acessórias. O recolhimento é dispensado para quem cumpre as obrigações acessórias, e os valores destacados podem ser compensados com PIS/COFINS.",
+      "fundamento": "LC 214/2025, arts. 343 a 348"
+    },
+    {
+      "ano": 2027,
+      "fase": "cbs_integral",
+      "ibs": 0.1,
+      "cbs": 9.3,
+      "reducaoCbsPontosPercentuais": 0.1,
+      "confianca": "media",
+      "efeitoNoOptante": "PIS e COFINS são extintos e substituídos pela CBS. O optante que permanece no Simples segue recolhendo pelo DAS; quem opta pelo regime regular passa a apurar CBS por fora, com crédito nas aquisições.",
+      "fundamento": "LC 214/2025, arts. 344 e 347"
+    },
+    {
+      "ano": 2028,
+      "fase": "cbs_integral",
+      "ibs": 0.1,
+      "cbs": 9.3,
+      "confianca": "media",
+      "efeitoNoOptante": "Mesma estrutura de 2027."
+    },
+    {
+      "anoInicial": 2029,
+      "anoFinal": 2032,
+      "fase": "transicao_ibs",
+      "reducaoIcmsIssPorAno": { "2029": 10, "2030": 20, "2031": 30, "2032": 40 },
+      "confianca": "media",
+      "efeitoNoOptante": "ICMS e ISS são reduzidos progressivamente e o IBS cresce na mesma proporção. Dentro do DAS a repartição acompanha essa migração.",
+      "fundamento": "LC 214/2025, arts. 344 a 346"
+    },
+    {
+      "ano": 2033,
+      "fase": "regime_pleno",
+      "ibs": 17.2,
+      "cbs": 9.3,
+      "confianca": "premissa",
+      "efeitoNoOptante": "IBS e CBS plenos. ICMS, ISS, PIS e COFINS extintos; no DAS, as parcelas correspondentes passam a representar IBS e CBS.",
+      "fundamento": "LC 214/2025, art. 343 e EC 132/2023"
+    }
+  ],
+  "cenarios": [
+    {
+      "id": "atual",
+      "nome": "Regime atual",
+      "descricao": "Fotografia de hoje: DAS único com IRPJ, CSLL, PIS, COFINS, CPP e ICMS ou ISS conforme o anexo.",
+      "creditoParaAdquirente": {
+        "existe": false,
+        "leitura": "O adquirente não se credita de PIS/COFINS pagos por optante do Simples, salvo hipóteses específicas."
+      },
+      "creditoNasAquisicoes": {
+        "existe": false,
+        "leitura": "O optante não apropria crédito; tributos das compras integram o custo."
+      }
+    },
+    {
+      "id": "por_dentro",
+      "nome": "IBS e CBS dentro do DAS",
+      "descricao": "O optante permanece no Simples e recolhe IBS e CBS junto do DAS, nas parcelas que hoje correspondem a PIS, COFINS e ICMS ou ISS.",
+      "regraDeCalculo": "percentualIbsCbsNoDas = repartição de pis + cofins + (icms ou iss) da faixa aplicável",
+      "creditoParaAdquirente": {
+        "existe": true,
+        "limite": "valor de IBS e CBS efetivamente embutido no DAS",
+        "leitura": "O cliente do regime regular credita apenas o que o optante recolheu no DAS, não a alíquota cheia. Isso encarece o optante como fornecedor em cadeias B2B.",
+        "fundamento": "LC 214/2025, art. 47"
+      },
+      "creditoNasAquisicoes": {
+        "existe": false,
+        "leitura": "Continua sem apropriar crédito das próprias compras — o IBS e a CBS pagos ao fornecedor são custo."
+      },
+      "quandoTendeAValerAPena": [
+        "venda direta a consumidor final, em que o crédito do cliente é irrelevante",
+        "margem alta com poucos insumos tributados",
+        "folha relevante que já reduz a carga pelo Fator R"
+      ]
+    },
+    {
+      "id": "por_fora",
+      "nome": "IBS e CBS pelo regime regular",
+      "descricao": "O optante mantém o Simples para os tributos federais e previdenciário, mas apura IBS e CBS fora do DAS, pelo regime regular.",
+      "opcao": {
+        "fundamento": "LC 214/2025, art. 41, § 3º",
+        "natureza": "opção do contribuinte",
+        "observacao": "A forma e a periodicidade da opção dependem de regulamentação; tratar como decisão de planejamento, não como automatismo."
+      },
+      "creditoParaAdquirente": {
+        "existe": true,
+        "limite": "alíquota cheia destacada no documento",
+        "leitura": "O cliente credita integralmente, o que recoloca o optante em pé de igualdade como fornecedor B2B.",
+        "fundamento": "LC 214/2025, art. 47, § 3º"
+      },
+      "creditoNasAquisicoes": {
+        "existe": true,
+        "leitura": "Passa a apropriar crédito de IBS e CBS das aquisições, o que favorece quem tem muito insumo tributado."
+      },
+      "reducoesAplicaveis": [
+        {
+          "id": "art_127_profissoes_intelectuais",
+          "reducaoPct": 30,
+          "descricao": "Redução de 30% das alíquotas para serviços de profissões intelectuais de natureza científica, literária ou artística submetidas a fiscalização por conselho profissional.",
+          "exemplos": ["advogados", "contadores", "médicos", "engenheiros", "arquitetos", "administradores"],
+          "fundamento": "LC 214/2025, art. 127"
+        }
+      ],
+      "creditoPresumidoEstoque": {
+        "existe": true,
+        "descricao": "Crédito sobre o estoque existente na entrada do novo regime, apropriado de forma parcelada.",
+        "fundamento": "LC 214/2025, art. 381",
+        "confianca": "media"
+      },
+      "quandoTendeAValerAPena": [
+        "vendas predominantemente B2B para empresas do regime regular",
+        "cadeia com insumos tributados relevantes",
+        "atividades com redução de alíquota, como as profissões intelectuais do art. 127"
+      ]
+    }
+  ],
+  "indicadoresDeDecisao": [
+    {
+      "id": "perfil_cliente",
+      "pergunta": "Qual a proporção de receita para clientes do regime regular, para optantes do Simples e para consumidor final?",
+      "porQueImporta": "Só cliente do regime regular valoriza crédito integral; consumidor final é indiferente."
+    },
+    {
+      "id": "peso_insumos",
+      "pergunta": "Qual o percentual das aquisições tributadas sobre a receita?",
+      "porQueImporta": "Quanto maior o insumo tributado, mais o regime regular tende a compensar."
+    },
+    {
+      "id": "fator_r",
+      "pergunta": "Qual o Fator R da empresa?",
+      "porQueImporta": "Fator R acima de 28% reduz a carga dentro do Simples e torna a permanência mais atrativa."
+    },
+    {
+      "id": "faixa_rbt12",
+      "pergunta": "Em que faixa de RBT12 a empresa está e quão perto está do sublimite?",
+      "porQueImporta": "Acima de R$ 3,6 milhões ICMS e ISS já saem do DAS, mudando a comparação."
+    },
+    {
+      "id": "preco_e_repasse",
+      "pergunta": "É possível repassar preço ao cliente que ganha crédito?",
+      "porQueImporta": "O ganho de crédito do cliente pode ser negociado no preço, alterando o resultado líquido."
+    }
+  ]
+}

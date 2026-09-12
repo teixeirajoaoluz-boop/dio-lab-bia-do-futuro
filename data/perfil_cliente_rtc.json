@@ -1,0 +1,58 @@
+{
+  "cliente_ficticio": true,
+  "observacao_estrutura": "Campos 'empresa'/'ecf'/'derivados'/'crescimento_aa'/'razao_credito'/'serie_anual' seguem o contrato real documentado em BASE RTC/premissas-projecoes/schema-premissas.json (mcp-planejamento-RTC). 'aliquotas_referenciais_guerra_rtc' segue o conceito descrito em BASE RTC/aliquotas-transicao/README.md (plataforma Guerra RTC) — são dois módulos distintos da mesma base.",
+
+  "empresa": {
+    "razao_social": "Nordeste Alimentos Comércio Ltda.",
+    "cnpj": "00.000.000/0001-00",
+    "regime": "LP",
+    "perfil": "comercio",
+    "cnae_principal": "4639-7/01",
+    "descricao_atividade": "Comércio atacadista de produtos alimentícios em geral",
+    "exercicio_ecf": 2025
+  },
+
+  "ecf": {
+    "observacao": "Fonte A — valores fictícios do último exercício, no formato exigido por premissas.py (calcular_derivados/validar).",
+    "receita_bruta": 8500000.00,
+    "exportacao": 0.00,
+    "mercado_interno": 8500000.00,
+    "pis_cofins": 306000.00,
+    "icms": 1173000.00,
+    "iss": 0.00,
+    "ipi": 0.00
+  },
+
+  "derivados": {
+    "observacao": "Propositalmente deixado em branco: regra da base é que 'derivados' precisa ser CALCULADO a partir de 'ecf', nunca copiado de outra empresa/período (BASE RTC/premissas-projecoes/schema-premissas.json).",
+    "extracao_art12": null,
+    "icms_efetivo": null
+  },
+
+  "crescimento_aa": null,
+  "razao_credito": null,
+
+  "serie_anual": [],
+  "serie_anual_observacao": "Vazio de propósito — o checklist (BASE RTC/premissas-projecoes/checklist-premissas-minimas.md) exige cobertura de 2027 a 2033 antes de rodar qualquer projeção; este cliente fictício está no início da consultoria, sem essa série ainda montada.",
+
+  "aliquotas_referenciais_guerra_rtc": {
+    "observacao": "Estimativa da carga tributária 'plena' quando o IBS/CBS estiver 100% em vigor — conceito da plataforma Guerra RTC (BASE RTC/aliquotas-transicao/README.md, seção 1), independente do contrato acima.",
+    "cbs_referencial_pct": 8.50,
+    "ibs_referencial_pct": 17.00,
+    "icms_referencial_pct": 18.00,
+    "iss_referencial_pct": 0.00
+  },
+
+  "enquadramento_regimes_diversos": {
+    "simples_nacional": false,
+    "regime_diferenciado_identificado": null,
+    "observacao": "Não identificamos, nesta base, nenhum dos regimes diferenciados/específicos listados em BASE RTC/REGIMES_DIVERSOS/ aplicável a este CNAE — segue o regime normal de transição até confirmação em contrário."
+  },
+
+  "dores_e_duvidas_frequentes": [
+    "Quanto vou pagar de CBS e IBS em cada ano da transição (2027-2033), comparado ao que pago hoje de PIS/COFINS/ICMS?",
+    "Minhas compras de insumos vão gerar crédito de IBS/CBS integral, ou depende do regime do meu fornecedor?",
+    "Existe algum regime diferenciado ou redução de alíquota para o setor de comércio de alimentos?",
+    "Que documentação preciso reunir para o dossiê técnico da consultoria?"
+  ]
+}

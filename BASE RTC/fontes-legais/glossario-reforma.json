@@ -1,0 +1,25 @@
+{
+  "_fonte": "mcp__mcp-compliance__alegacao_glossario",
+  "descricao": "Termos técnicos da Reforma Tributária e do Simples Nacional com base legal, para uso consistente em qualquer mentoria/diagnóstico.",
+  "total": 18,
+  "termos": [
+    { "sigla": "IBS", "nome": "Imposto sobre Bens e Serviços", "descricao": "Substitui ICMS (estadual) e ISS (municipal) a partir de 2033", "base_legal": "LC 214/2025" },
+    { "sigla": "CBS", "nome": "Contribuição sobre Bens e Serviços", "descricao": "Substitui PIS e COFINS (federais) a partir de 2033", "base_legal": "LC 214/2025" },
+    { "sigla": "IS", "nome": "Imposto Seletivo", "descricao": "Incide sobre produtos e serviços considerados nocivos (cigarro, bebidas, etc.)", "base_legal": "LC 214/2025" },
+    { "sigla": "Split Payment", "nome": "Pagamento com Retenção Automática", "descricao": "Sistema em que o banco retém automaticamente IBS/CBS no momento do pagamento, repassando ao erário sem intervenção do contribuinte. B2B a partir de 2027.", "base_legal": "LC 214/2025, art. 34" },
+    { "sigla": "RTC", "nome": "Registro de Cálculo de Tributos", "descricao": "Grupo XML obrigatório na NF-e 4.0 para informar IBS, CBS e IS. Obrigatório B2B a partir de 2027.", "base_legal": "NT 2025.002 v1.34 (versão atual — dez/2025)" },
+    { "sigla": "PGDAS-D", "nome": "Programa Gerador do Documento de Arrecadação do Simples Nacional", "descricao": "Sistema de apuração e recolhimento unificado do Simples Nacional", "base_legal": "Resolução CGSN 140/2018" },
+    { "sigla": "RBT12", "nome": "Receita Bruta Total dos últimos 12 meses", "descricao": "Base de cálculo da alíquota progressiva do Simples Nacional", "base_legal": "LC 123/2006" },
+    { "sigla": "Fator R", "nome": "Relação Folha/Receita Bruta", "descricao": "Define se empresa de serviços aplica Anexo III ou V do Simples Nacional", "base_legal": "LC 123/2006, Anexo V" },
+    { "sigla": "AFRAC", "nome": "Associação Brasileira das Secretarias de Finanças das Capitais", "descricao": "Entidade que representa as Secretarias de Finanças municipais e publica orientações sobre IBS/CBS", "base_legal": null },
+    { "sigla": "CGIBS", "nome": "Comitê Gestor do IBS", "descricao": "Órgão responsável pela administração do IBS nos âmbitos estadual e municipal", "base_legal": "LC 214/2025, art. 56" },
+    { "sigla": "CGSN", "nome": "Comitê Gestor do Simples Nacional", "descricao": "Órgão responsável pela regulamentação do Simples Nacional", "base_legal": "LC 123/2006" },
+    { "sigla": "DAS", "nome": "Documento de Arrecadação do Simples Nacional", "descricao": "Guia unificada de recolhimento do Simples Nacional, gerada pelo PGDAS-D", "base_legal": "LC 123/2006" },
+    { "sigla": "NF-e", "nome": "Nota Fiscal Eletrônica", "descricao": "Modelo 55 — obrigatória para operações de venda de mercadorias B2B", "base_legal": "NT 2025.002" },
+    { "sigla": "NFC-e", "nome": "Nota Fiscal de Consumidor Eletrônica", "descricao": "Modelo 65 — obrigatória para operações B2C (varejo)", "base_legal": "NT 2025.001" },
+    { "sigla": "BP-e", "nome": "Bilhete de Passagem Eletrônico", "descricao": "Documento fiscal para transporte de passageiros", "base_legal": "BPe NT 2025.001" },
+    { "sigla": "CPC 51", "nome": "Apresentação e Divulgação nas Demonstrações Contábeis", "descricao": "Nova norma contábil em vigor desde 01/01/2026, obrigatória para DRE com IBS/CBS", "base_legal": "CPC 51, vigência: 07/01/2026" },
+    { "sigla": "NBC TG 51", "nome": "Apresentação e Divulgação nas Demonstrações Contábeis (CFC)", "descricao": "Equivalente ao CPC 51 emitido pelo Conselho Federal de Contabilidade", "base_legal": "NBC TG 51, vigência: 25/02/2026" },
+    { "sigla": "DAE", "nome": "Documento de Arrecadação do e-Social", "descricao": "Guia de recolhimento de contribuições previdenciárias — NÃO confundir com DAS do Simples", "base_legal": null }
+  ]
+}
