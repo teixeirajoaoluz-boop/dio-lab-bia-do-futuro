@@ -65,23 +65,24 @@ normativa.
 
 ```mermaid
 flowchart TD
-    A[Usuário] -->|Pergunta sobre RTC| B[Interface - Streamlit]
-    B --> C[LLM]
-    C --> D[Recuperação na Base RTC - RAG]
-    D --> C
-    C --> E[Validação: exige citação de fonte]
-    E -->|Fonte encontrada| F[Resposta com citação]
-    E -->|Fonte não encontrada / lacuna| G[Resposta admite limitação]
+    A[Usuário] -->|Pergunta| B[Interface - Streamlit]
+    B --> C[Recuperação BM25 na Base RTC]
+    C --> D[Contexto: chunks recuperados + perfil do cliente]
+    D --> E[Gemini via API REST]
+    E -->|Segue as regras do system prompt| F[Resposta citando arquivo-fonte]
+    F --> B
 ```
 
 ### Componentes
 
 | Componente | Descrição |
 |------------|-----------|
-| Interface | Chatbot em Streamlit |
-| LLM | Modelo via API (ex.: Claude, GPT) com temperatura baixa para reduzir criatividade indevida |
+| Interface | Chatbot em Streamlit (`src/app.py`) |
+| Recuperação (RAG) | Busca por palavra-chave (BM25, `rank-bm25`) sobre a `BASE RTC/` — sem embeddings (`src/rag.py`) |
+| LLM | Google Gemini via API REST, chamado diretamente com `requests` (`src/agente.py`) |
 | Base de Conhecimento | `BASE RTC/` — ~15 pastas temáticas + 25 subpastas de regimes, em JSON/Markdown |
-| Validação | Checagem de que a resposta cita o arquivo/fonte usado e cruzamento com a lista de "Lacunas conhecidas" da base |
+| Personalização | `data/perfil_cliente_rtc.json` injetado em todo turno da conversa |
+| "Validação" | **Não é uma etapa de código separada** — é reforçada só via instrução no system prompt (citar fonte, admitir lacuna). Não há checagem automática pós-resposta que rejeite uma resposta sem citação; essa é uma limitação conhecida, listada em [`04-metricas.md`](./04-metricas.md). |
 
 ---
 
@@ -93,6 +94,12 @@ flowchart TD
 - [x] Toda resposta cita a fonte usada (arquivo da base e, quando existir, o artigo de lei mapeado em `fontes-legais/`)
 - [x] Quando o tema cai em uma das "Lacunas conhecidas" documentadas na base, o agente declara isso explicitamente em vez de completar com suposição
 - [x] Não emite parecer jurídico/fiscal vinculante nem substitui um contador ou advogado tributarista — sempre recomenda validação profissional para decisões de negócio
+
+> **Honestidade sobre o mecanismo:** as quatro estratégias acima são reforçadas via **instrução no
+> system prompt** (`src/agente.py`), não por uma checagem de código que rejeite/reescreva uma
+> resposta não conforme. Testamos e confirmamos que o Gemini segue essas regras nos cenários de
+> `04-metricas.md`, mas não há uma segunda camada automática que bloqueie uma resposta caso o
+> modelo, em algum caso não testado, não siga a instrução.
 
 ### Limitações Declaradas
 > O que o agente NÃO faz?
